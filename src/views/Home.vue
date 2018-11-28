@@ -110,8 +110,6 @@
           p Start building beautiful and fast applications with Onyx Framework in minutes. All you'll need is your laptop and a cup of coffee.
 </template>
 
-<script type="text/javascript"></script>
-
 <style lang="sass" scoped>
   @import '@/assets/styles/mixins.sass'
 
