@@ -1,7 +1,8 @@
 <template lang="pug">
   header
     .content
-      a.left.logo(href="#") onyx
+      a.left.logo(href="#")
+        img.name(src="/img/logo-name.svg")
       .right.menu
         a(href="#") Docs
         a(href="#") API
@@ -46,8 +47,15 @@
     padding-left: 2rem
 
   .logo
-    font-weight: bolder
-    font-size: 1.5rem
+    img
+      display: inline-block
+      vertical-align: middle
+
+      &:nth-child(2)
+        margin-left: 0.5rem
+
+    .name
+      height: 1rem
 
   .menu
     a /* stylelint-disable no-descending-specificity */

@@ -46,12 +46,6 @@
             a(href="#") Jobs
 </template>
 
-<script>
-  export default {
-
-  }
-</script>
-
 <style lang="sass" scoped>
   @import '@/assets/styles/mixins.sass'
 
@@ -60,6 +54,7 @@
 
     padding-bottom: 3rem
     color: white
+    background: linear-gradient(0deg, black 0%, transparent 80%)
 
     .wrapper
       display: grid
