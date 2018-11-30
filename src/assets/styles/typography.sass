@@ -5,3 +5,17 @@ body
 
 a
   text-decoration: none
+
+p
+  margin: 0
+  line-height: 1.3
+
+  & + &
+    margin-top: 1rem
+
+h1, h2, h3, h4, h5
+  margin: 0
+  // line-height: 1
+
+  & + p, p + &, & + &
+    margin-top: 1rem
