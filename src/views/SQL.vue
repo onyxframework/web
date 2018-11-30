@@ -302,7 +302,7 @@
       background-color: white
 
       &:hover
-        box-shadow: 0 0 100px 5px transparentize($color-green, 0.5)
+        // box-shadow: 0 0 100px 5px transparentize($color-green, 0.5)
 
       > div:nth-child(2)
         text-align: center
