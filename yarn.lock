@@ -7803,6 +7803,10 @@ void-elements@^2.0.1:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/void-elements/-/void-elements-2.0.1.tgz#c066afb582bb1cb4128d60ea92392e94d5e9dbec"
 
+vue-dropdowns@^1.0.6:
+  version "1.0.6"
+  resolved "https://registry.yarnpkg.com/vue-dropdowns/-/vue-dropdowns-1.0.6.tgz#cc6d086c8e7570768bda1fc598f9e27dd0145d0a"
+
 vue-eslint-parser@^2.0.3:
   version "2.0.3"
   resolved "http://registry.npmjs.org/vue-eslint-parser/-/vue-eslint-parser-2.0.3.tgz#c268c96c6d94cfe3d938a5f7593959b0ca3360d1"

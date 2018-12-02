@@ -20,6 +20,11 @@ export default new Router({
       path: '/sql',
       name: 'SQL',
       component: () => import(/* webpackChunkName: "sql" */ './views/SQL.vue')
+    },
+    {
+      path: '/background',
+      name: 'Background',
+      component: () => import(/* webpackChunkName: "background" */ './views/Background.vue')
     }
   ],
   scrollBehavior (to, from, savedPosition) {

@@ -1,6 +1,8 @@
 @import './variables'
 @import './mixins'
 
+$color-green: #2ea626
+
 .view
   flex-direction: column
   width: 100%
@@ -48,3 +50,24 @@
 
     .stripe
       position: absolute
+
+  .pro, .ent
+    padding: 0.2rem 0.4rem
+    color: white
+    font-weight: bold
+    font-size: 70%
+    text-transform: uppercase
+    // border: 2px solid black
+    border-radius: 4px
+
+  .pro
+    background-color: $color-green
+
+    &:before
+      content: 'pro'
+
+  .ent
+    background-color: #c0c
+
+    &:before
+      content: 'ent'

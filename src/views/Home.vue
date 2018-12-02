@@ -7,7 +7,7 @@
       template(slot="button") Get started
     features
       feature
-        template(slot="title") 💨 Fast
+        template(slot="title") ⏱ Fast
         template(slot="content")
           | Onyx Framework is built on&nbsp;
           a(href="https://crystal-lang.org") Crystal
@@ -43,28 +43,21 @@
       .wrapper
         h2.title 📦 Onyx Components
         .cards
-          //- router-link.card(to="/rest")
-          a.card(href="#")
+          router-link.card(to="/rest")
             .content
               h3.title 🌎 Onyx::REST
               p.description A REST framework to build blazingly fast action-based APIs. Features common middleware, routing, strongly-typed HTTP params and JSON rendering.
-            a(href="#") Learn more →
+            router-link(to="/rest") Learn more →
           router-link.card(to="/sql")
             .content
               h3.title 🐘 Onyx::SQL
               p.description An SQL ORM to map models to/from databases like PostgreSQL, MySQL and more. Features beautiful schema definition DSL and strongly-typed Query builder.
-            a(href="#") Learn more →
-          a.card(href="#")
+            router-link(to="/sql") Learn more →
+          router-link.card(to="/background")
             .content
               h3.title 🏭 Onyx::Background
               p.description A background job processing based on Redis. Features superior performance and simple syntax.
-            a(href="#") Learn more →
-        p.additional
-          | There are also some utility tools like&nbsp;
-          a(href="#") 📚 Onyx CLI
-          |  and&nbsp;
-          a(href="#") 📚 Onyx
-          |  top-level macros.
+            router-link(to="/background") Learn more →
     section.licensing
       .wrapper
         .item
@@ -105,9 +98,9 @@
 <script>
   import Header from '@/components/Header.vue'
   import Footer from '@/components/Footer.vue'
-  import Features from '@/components/Features.vue'
-  import Feature from '@/components/Feature.vue'
-  import Hero from '@/components/Hero.vue'
+  import Features from '@/components/sections/Features.vue'
+  import Feature from '@/components/sections/components/Feature.vue'
+  import Hero from '@/components/sections/Hero.vue'
 
   export default {
     components: {

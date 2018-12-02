@@ -4,7 +4,7 @@
       .left
         router-link.logo(to="/")
           img(src="/img/logo-name.svg")
-        router-link.sub(v-if="sub", to="sub") {{subTitle}}
+        router-link.sub(v-if="selectedComponent", to="selectedComponent.path") {{selectedComponent.name}}
       .right.menu
         a(:href="docsURL") Docs
         a(:href="apiURL") API
@@ -14,25 +14,61 @@
 </template>
 
 <script>
+  import Dropdown from 'vue-dropdowns'
+
   export default {
+    components: {
+      Dropdown
+    },
     props: {
-      sub: {
+      component: {
         type: String,
         default: null
       }
     },
+    data () {
+      return {
+        components: [{
+          name: 'REST',
+          path: '/rest'
+        }, {
+          name: 'SQL',
+          path: '/sql'
+        }, {
+          name: 'Background',
+          path: '/background'
+        }]
+      }
+    },
     computed: {
+      selectedComponent () {
+        switch (this.component) {
+        case 'rest':
+          return this.components[0]
+        case 'sql':
+          return this.components[1]
+        case 'background':
+          return this.components[2]
+        default:
+          return null
+        }
+      },
       docsURL () {
-        return 'https://docs.onyxframework.org' + (this.sub || '')
+        let add = this.component ? this.component.path : ''
+        return 'https://docs.onyxframework.org' + add
       },
       apiURL () {
-        return 'https://api.onyxframework.org' + (this.sub || '')
+        let add = this.component ? this.component.path : ''
+        return 'https://api.onyxframework.org' + add
       },
       gitHubURL () {
-        return 'https://github.com/onyxframework' + (this.sub || '')
-      },
-      subTitle () {
-        return this.$route.name
+        let add = this.component ? this.component.path : ''
+        return 'https://github.com/onyxframework' + add
+      }
+    },
+    methods: {
+      onSelected () {
+
       }
     }
   }
