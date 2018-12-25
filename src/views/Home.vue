@@ -1,253 +1,222 @@
 <template lang="pug">
-  .home.view
-    app-header
-    hero
-      template(slot="title") Powerful framework for modern applications
-      template(slot="description") Built on Crystal, Onyx Framework brings previously unseen combination of speed and joy to the world of development.
-      template(slot="button") Get started
-    features
-      feature
-        template(slot="title") ⏱ Fast
-        template(slot="content")
-          | Onyx Framework is built on&nbsp;
-          a(href="https://crystal-lang.org") Crystal
-          |  — a compiled language on top of LLVM, which makes it C-fast.
-      feature
-        template(slot="title") 🔋 Efficient
-        template(slot="content") Crystal has minimum footprint in RAM and is compiled to tiny binaries executable on most platforms.
-      feature
-        template(slot="title") 🔒 Safe
-        template(slot="content") Thanks to Crystal being compiled, you can catch bugs during development, reducing the amount of runtime errors.
-      feature
-        template(slot="title") 👶 Simple
-        template(slot="content") Onyx Framework is designed to be as newcomer-friendly as possible, still leaving a space to grow with your knowledge.
-      feature
-        template(slot="title") 🍃 Beautiful
-        template(slot="content") Crystal syntax is heavily inspired by Ruby, making the process of development a true joy while staying full OOP.
-      feature
-        template(slot="title") 📦 Modular
-        template(slot="content") Onyx Framework consists of multiple loosely-coupled components, perfectly designed for common application needs.
-    section.components
-      vue-particles.particles(
-        color="#000000"
+  .home
+    section.hero
+      vue-particles(
+        color="#ffffff"
         :particleOpacity="1"
         shapeType="edge"
+        :particleSize="3"
+        :linesWidth="0"
+        :lineOpacity="0"
         :hoverEffect="false"
         :clickEffect="false"
         :moveSpeed="2"
-        :linesDistance="0"
-        :particleSize="2"
       )
-      .stripes
-        .stripe
+      img.logo(src="/img/logo.svg")
+      h1 Onyx Framework
+      h2 Enjoy the performance
+      a.button.hover-raise(href="#") Get started
+    section.brief-description
       .wrapper
-        h2.title 📦 Onyx Components
-        .cards
-          router-link.card(to="/rest")
-            .content
-              h3.title 🌎 Onyx::REST
-              p.description A REST framework to build blazingly fast action-based APIs. Features common middleware, routing, strongly-typed HTTP params and JSON rendering.
-            router-link(to="/rest") Learn more →
-          router-link.card(to="/sql")
-            .content
-              h3.title 🐘 Onyx::SQL
-              p.description An SQL ORM to map models to/from databases like PostgreSQL, MySQL and more. Features beautiful schema definition DSL and strongly-typed Query builder.
-            router-link(to="/sql") Learn more →
-          router-link.card(to="/background")
-            .content
-              h3.title 🏭 Onyx::Background
-              p.description A background job processing based on Redis. Features superior performance and simple syntax.
-            router-link(to="/background") Learn more →
-    section.licensing
+        p.description
+          | Powered by&nbsp;
+          a(href="https://crystal-lang.org") Crystal
+          |  — a compiled language on top of&nbsp;
+          a(href="https://llvm.org") LLVM
+          |  — Onyx Framework applications run faster while consuming less.
+        p.links
+          a(href="https://github.com/onyxframework")
+            i.feather-github
+            span GitHub
+          a(href="https://twitter.com/onyxframework")
+            i.feather-twitter
+            span Twitter
+          a(href="https://t.me/onyxframework")
+            i.feather-send
+            span Telegram
+    section.language-features
       .wrapper
-        .item
-          .content
-            h2.heading 🤓 Community driven
-            p We believe that open-source software benefits everyone, that's why Onyx Framework has most of its components licensed under AGPL. You can participate in the development process by opening issues and pull requests on GitHub, joining discussions on the forum or chatting in our Gitter Room.
-          a.link(href="#") Visit github.com/onyxframework →
-        .item
-          .content
-            h2.heading 💰 Businesses backed
-            p We also believe in fair usage of the open-source software. Onyx Framework components have a number of features available to Professional and Enterprise licensees only. Commercial license allows you to join Slack and GitHub Teams-based community, thus able to participate in the development process as well.
-          a.link(href="#") Visit onyxframework.com →
-    section.customers
+        .feature
+          h1 Fast
+          p Orders-of-magnitude-faster than Ruby applications you've got used to. Processing speeds comparable with languages like Go, Rust and even C.
+        .feature
+          h1 Solid
+          p Crystal is a compiled language, which allows to catch bugs early, reducing the amount of unexpected errors in production.
+        .feature
+          h1 Beautiful
+          p If you love Ruby for its syntax, you'll definitely fall in love with Crystal as well!
+    section.benchmarks
       .wrapper
-        a(href="#")
-          img(src="@/assets/img/acme.png")
-        a(href="#")
-          img(src="@/assets/img/acme.png")
-        a(href="#")
-          img(src="@/assets/img/acme.png")
-        a(href="#")
-          img(src="@/assets/img/acme.png")
-        a(href="#")
-          img(src="@/assets/img/acme.png")
-    section.bottom
-      .stripes
-        .stripe
+        i Insert benchmarks here
+    section.framework-features
       .wrapper
-        a.card(href="#")
-          h2.header 📰 Visit our blog →
-          p Read Onyx Framework development and community news, learn about its powers and how-to's. We also write about Crystal Language itself.
-        a.card(href="#")
-          h2.header 📚 Explore the docs →
-          p Start building beautiful and fast applications with Onyx Framework in minutes. All you'll need is your laptop and a cup of coffee.
-    app-footer
+        .feature
+          h1 Great starting point
+          p
+            | Entirely new to the&nbsp;
+            a(href="https://crystal-lang.org") Crystal Language
+            | ? Onyx Framework is an ideal starting point to dive into the world of web-development (and more) with Crystal!
+          p
+            i Insert tutorial and docs links here
+          pre.code-example(v-highlight)
+            code.crystal.
+              require "onyx/rest"
+
+              Onyx.get "/" do
+                "Hello Onyx!"
+              end
+
+              Onyx.listen
+        .feature
+          h1 Scales with your knowledge
+          p Ready to move on with your hobby project? You can easily add new features and expand the framework with functionality you need.
+          p
+            i Insert docs links here
+          pre.code-example(v-highlight)
+            code.crystal.
+              class Onyx::REST::Server
+                def foo
+                  puts "That's a custom function!"
+                end
+              end
+        .feature
+          h1 Built for business
+          p
+            | Already feeling confident enough to build a real-world project on the Onyx Framework or ship applications to your clients faster? Visit&nbsp;
+            a(href="https://onyxframework.com") onyxframework.com
+            |  to find out how it can suit your business needs.
 </template>
 
-<script>
-  import Header from '@/components/Header.vue'
-  import Footer from '@/components/Footer.vue'
-  import Features from '@/components/sections/Features.vue'
-  import Feature from '@/components/sections/components/Feature.vue'
-  import Hero from '@/components/sections/Hero.vue'
-
-  export default {
-    components: {
-      AppHeader: Header,
-      AppFooter: Footer,
-      Features,
-      Feature,
-      Hero
-    }
-  }
-</script>
+<style src="highlight.js/styles/darkula.css"></style>
 
 <style lang="sass" scoped>
-  @import '@/assets/styles/variables.sass'
   @import '@/assets/styles/mixins.sass'
 
-  $color-light-gray: #f3f3f3
-  $border: 1px solid $color-light-gray
+  $border: 0.5px solid #eee
+  $max-width: 50rem
+  $media-tablet: 768px
 
-  section.components
-    padding: 7rem 0 4rem
-    background-color: $color-light-gray
+  section
+    +center
 
-    .stripes
-      .stripe:nth-of-type(1)
-        top: -3rem
-        left: 0
-        width: 100%
-        height: 6rem
-        background-color: white
-        transform: skewY(-2deg)
+    padding: 2rem
 
-    .particles
+    &:not(:last-of-type)
+      border-bottom: $border
+
+    .wrapper
+      width: 100%
+      max-width: $max-width
+
+  .hero
+    +center
+
+    position: relative
+
+    flex-direction: column
+    padding-top: 4rem
+    padding-bottom: 4rem
+
+    color: white
+    text-align: center
+    background-color: black
+
+    .logo
+      z-index: 1
+      height: 5rem
+      margin-bottom: 0.5rem
+      padding: 0.75rem
+      background-color: white
+      border-radius: 4px
+
+    h1, h2, .button
+      z-index: 1
+
+    h1
+      margin-top: 0.5rem
+
+    h2
+      margin-top: 0.25rem
+      font-weight: normal
+      font-size: 1.2rem
+
+    .button
+      margin-top: 1rem
+      background-color: lighten(green, 5)
+
+    #particles-js
       position: absolute
-      top: 0
-      left: 0
       z-index: 0
       width: 100%
       height: 100%
+
+  .brief-description
+    font-size: 1.2rem
+    text-align: center
 
     .wrapper
       +center
       flex-direction: column
 
-      > *:not(:first-child)
-        margin-top: 1.5rem
+    .description
+      max-width: 40rem
 
-      .additional a
-        font-weight: bold
-
-    .cards
+    .links
       display: grid
-      grid-template-columns: 1fr 1fr 1fr
-      grid-column-gap: 1.2rem
-      margin-top: 1.4rem
+      grid-template-columns: repeat(3, 1fr)
+      grid-column-gap: 1rem
 
-    .card
-      .description
-        margin-bottom: 1rem
+      margin-top: 1rem
 
-      a /* stylelint-disable no-descending-specificity */
+      @media (max-width: $media-tablet)
+        grid-template-columns: 100%
+        grid-row-gap: 1rem
+
+      a
+        display: block
+        width: 100%
+        padding: 0.5rem 1rem
+
+        color: white
+        text-decoration: none
+        background-color: black
+
+        border-radius: 4px
+
+        i
+          margin-right: 0.5rem
+
         &:hover
-          color: black
-
-  section.licensing
-    +center
-
-    color: $color-text-black
-    background-color: white
-
-    /* stylelint-disable no-descending-specificity, rule-empty-line-before */
-    .wrapper
-      display: grid
-      grid-template-columns: 1fr 1fr
-      grid-column-gap: 0
-
-      .item
-        display: flex
-        flex-direction: column
-        justify-content: space-between
-
-        padding: 5rem 2rem
-
-        .link
-          margin-top: 1rem
-
-          &:hover /* stylelint-disable no-descending-specificity */
-            color: black
-
-        &:first-of-type
-          padding-left: 0
-
-        &:last-of-type
-          padding-right: 0
+          box-shadow: 0 3px 15px 0 rgba(black, 0.1)
+          transform: translateY(-1px)
 
         &:not(:first-of-type)
-          border-left: $border
+          // margin-left: 1rem
 
-  section.customers
-    +center
-
-    padding: 2rem 0
-
-    background-color: white
-    border-top: $border
-
+  .language-features
     .wrapper
       display: grid
-      grid-template-columns: repeat(5, 1fr)
-      max-width: 54rem
+      grid-template-columns: repeat(3, 1fr)
+      grid-column-gap: 2rem
 
-      a /* stylelint-disable no-descending-specificity */
-        display: block
-        margin: 1rem 2rem
-        text-align: center
+      @media (max-width: $media-tablet)
+        grid-template-columns: 100%
+        grid-row-gap: 2rem
 
-        img
-          max-width: 100%
-          opacity: 0.5
-          filter: grayscale(100%)
-
-        &:hover
-          transform: translateY(-4px)
-
-          img
-            opacity: 1
-            filter: none
-
-  section.bottom
-    +center
-
-    padding-bottom: 3rem
-    color: $color-text-black
-
-    .stripe:nth-of-type(1)
-      top: -6rem
-      left: 0
-      width: 100%
-      height: 12rem
-      background-color: white
-      transform: skewY(-2deg)
-
+  .framework-features
     .wrapper
       display: grid
-      grid-template-columns: 1fr 1fr
-      grid-column-gap: 1.5rem
+      grid-row-gap: 1rem
+      grid-template-columns: 100%
 
-      .card
-        padding: 2rem
+    .feature
+      max-width: 100%
+
+    .code-example
+      max-width: 100%
+
+      code
+        padding: 1rem
+        line-height: 1.4
+        border-radius: 4px
 </style>
