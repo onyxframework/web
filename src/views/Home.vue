@@ -409,11 +409,11 @@
 
       .title
         margin-bottom: 0.75rem
-        font-size: 1.2rem
+        font-size: 1.1rem
 
       li
         font-weight: bold
-        font-size: 1.4rem
+        font-size: 1.2rem
 
       &.rare
         .colored
