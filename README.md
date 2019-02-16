@@ -1,4 +1,6 @@
-# org-web
+# Onyx Framework website
+
+The information on this repo will be eventually updated.
 
 ## Project setup
 ```

@@ -14,77 +14,198 @@
       )
       img.logo(src="/img/logo.svg")
       h1 Onyx Framework
-      h2 Enjoy the performance
+      h2 Enjoy the performance 💪
       a.button.hover-raise(href="#") Get started
     section.brief-description
       .wrapper
         p.description
           | Powered by&nbsp;
-          a(href="https://crystal-lang.org") Crystal
+          a(target="_blank" href="https://crystal-lang.org") Crystal
           |  — a compiled language on top of&nbsp;
-          a(href="https://llvm.org") LLVM
+          a(target="_blank" href="https://llvm.org") LLVM
           |  — Onyx Framework applications run faster while consuming less.
         p.links
-          a(href="https://github.com/onyxframework")
+          a.button(target="_blank" href="https://github.com/onyxframework")
             i.feather-github
             span GitHub
-          a(href="https://twitter.com/onyxframework")
+          a.button(target="_blank" href="https://twitter.com/onyxframework")
             i.feather-twitter
             span Twitter
-          a(href="https://t.me/onyxframework")
+          a.button(target="_blank" href="https://gitter.im/onyxframework")
+            i.feather-message-square
+            span Gitter
+          a.button(target="_blank" href="https://t.me/onyxframework")
             i.feather-send
             span Telegram
     section.language-features
       .wrapper
         .feature
-          h1 Fast
+          h1 Fast ⚡️
           p Orders-of-magnitude-faster than Ruby applications you've got used to. Processing speeds comparable with languages like Go, Rust and even C.
         .feature
-          h1 Solid
+          h1 Solid 💪
           p Crystal is a compiled language, which allows to catch bugs early, reducing the amount of unexpected errors in production.
         .feature
-          h1 Beautiful
-          p If you love Ruby for its syntax, you'll definitely fall in love with Crystal as well!
-    section.benchmarks
+          h1 Beautiful 🍃
+          p If you love Ruby syntax and expressiveness, you'll definitely fall in love with Crystal as well!
+    section.framework-components
       .wrapper
-        i Insert benchmarks here
+        h2 Onyx Framework components:
+        .components
+          .component
+            .up
+              h2 Onyx
+              .description Macros for better day-to-day development process
+            .down
+              a.button(target="_blank" href="https://github.com/onyxframework/onyx")
+                i.feather-github
+                span Open on GitHub
+          .component
+            .up
+              h2 Onyx::HTTP
+              .description A collection of HTTP helpers to fit common application needs
+            .down
+              a.button(target="_blank" href="https://github.com/onyxframework/http")
+                i.feather-github
+                span Open on GitHub
+          .component
+            .up
+              h2 Onyx::REST
+              .description Opinionated REST API framework designed to scale fast
+            .down
+              a.button(target="_blank" href="https://github.com/onyxframework/rest")
+                i.feather-github
+                span Open on GitHub
+          .component
+            .up
+              h2 Onyx::SQL
+              .description A database-agnostic SQL ORM with beautiful DSL done right
+            .down
+              a.button(target="_blank" href="https://github.com/onyxframework/sql")
+                i.feather-github
+                span Open on GitHub
+          .component
+            .up
+              h2 Onyx::EDA
+              .description An Event-Driven Architecture framework to build reactive apps
+            .down
+              a.button(target="_blank" href="https://github.com/onyxframework/eda")
+                i.feather-github
+                span Open on GitHub
+        h2
+          abbr(title="Work In Progress") WIP
+          |  components:
+        .wip-components
+          .component
+            .up
+              h2 Onyx::CLI
+              .description Official Command Line Interface to perform various tasks
+            .down
+              a.button(target="_blank" href="https://github.com/onyxframework/cli")
+                i.feather-github
+                span Open on GitHub
+          .component
+            .up
+              h2 Onyx::GraphQL
+              .description A business-grade type-safe GraphQL framework
+            .down
+              a.button(target="_blank" href="https://github.com/onyxframework/rest")
+                i.feather-github
+                span Open on GitHub
     section.framework-features
       .wrapper
         .feature
-          h1 Great starting point
+          h1 Great starting point 📚
           p
-            | Entirely new to the&nbsp;
+            | Are you entirely new to the&nbsp;
             a(href="https://crystal-lang.org") Crystal Language
             | ? Onyx Framework is an ideal starting point to dive into the world of web-development (and more) with Crystal!
           p
-            i Insert tutorial and docs links here
-          pre.code-example(v-highlight)
-            code.crystal.
-              require "onyx/rest"
+            | All the framework components are designed to be as simple for newcomers as possible, hiding its complexity under powerful&nbsp;
+            abbr(title="Domain Specific Language") DSL
+            | , which reduces bolierplate code. Onyx respects configuration over convention, and all macros expand to clean, understandable code — no magic involved 🤓
+          br
+          .code-split
+            .split-block
+              h3 Explicit code
+              pre.code-example(v-highlight)
+                code.crystal.
+                  require "onyx-http"
 
-              Onyx.get "/" do
-                "Hello Onyx!"
-              end
+                  logger = Onyx::HTTP::Logger.new
+                  request_id = Onyx::HTTP::RequestID.new
+                  response_time = Onyx::HTTP::ResponseTime.new
+                  rescuer = Onyx::HTTP::Rescuers::Standard(Exception).new
+                  router_rescuer = Onyx::HTTP::Rescuers::RouteNotFound.new
 
-              Onyx.listen
+                  router = Onyx::HTTP::Router.new do
+                    get "/" do |env|
+                      env.response << "Hello Onyx"
+                    end
+                  end
+
+                  server = Onyx::HTTP::Server.new(
+                    response_time,
+                    request_id,
+                    logger,
+                    rescuer,
+                    router_rescuer,
+                    router
+                  )
+
+                  server.bind_tcp(5000)
+                  server.listen
+            .split-block
+              h3 Same code, but with DSL
+              pre.code-example(v-highlight)
+                code.crystal.
+                  require "onyx/http"
+
+                  Onyx.get "/" do |env|
+                    env.response << "Hello Onyx!"
+                  end
+
+                  Onyx.listen(5000)
         .feature
-          h1 Scales with your knowledge
-          p Ready to move on with your hobby project? You can easily add new features and expand the framework with functionality you need.
+          h1 Scales with your knowledge 🚀
           p
-            i Insert docs links here
+            | While the DSL is a great for beginners, your applications may start needing custom functionality. Thanks to the MIT license, you are not limited in extending the framework! Moreover, with the help of the rich&nbsp;
+            a(href="https://api.onyxframework.org") API documentation
+            | , hacking becomes a piece of cake! 🍰
           pre.code-example(v-highlight)
             code.crystal.
-              class Onyx::REST::Server
+              module Onyx::SQL::Model
                 def foo
                   puts "That's a custom function!"
                 end
               end
         .feature
-          h1 Built for business
+          h1 Backed by you ❤️
           p
-            | Already feeling confident enough to build a real-world project on the Onyx Framework or ship applications to your clients faster? Visit&nbsp;
-            a(href="https://onyxframework.com") onyxframework.com
-            |  to find out how it can suit your business needs.
+            | Onyx Framework, as most of my other projects, is MIT-licensed, and its development is driven by the love of the community and businesses. Become a patron today to support a dozen of Crystal shards and projects maintained by me,&nbsp;
+            a(target="_blank" href="https://vladfaust.com") Vlad Faust
+            | .
+    section.supporters
+      .wrapper
+        img.wreath(src="/img/wreath.svg")
+        a.patreon-button(target="_blank" href="https://patreon.com/vladfaust")
+          img(src="/img/patreon-button.svg")
+        ul.rare
+          .title Rare tier supporters:
+          li
+            a.colored(href="https://github.com/ljuti") Lauri Jutila
+        ul.special
+          .title Special thanks:
+          li
+            a.colored(href="https://github.com/Pomis") Roman Ismagilov
+          li
+            a.colored(href="https://www.researchgate.net/profile/Ilya_Kudrov") Ilya Kudrov
+          li
+            span Dmitry Antipov
+          li
+            span Awesome Crystal community 👥
+          li
+            span Awesome Crystal core team 👾
 </template>
 
 <style src="highlight.js/styles/darkula.css"></style>
@@ -92,14 +213,14 @@
 <style lang="sass" scoped>
   @import '@/assets/styles/mixins.sass'
 
-  $border: 0.5px solid #eee
+  $border: 0.5px solid #ddd
   $max-width: 50rem
   $media-tablet: 768px
 
   section
     +center
 
-    padding: 2rem
+    padding: 3rem
 
     &:not(:last-of-type)
       border-bottom: $border
@@ -127,7 +248,7 @@
       margin-bottom: 0.5rem
       padding: 0.75rem
       background-color: white
-      border-radius: 4px
+      border-radius: 6px
 
     h1, h2, .button
       z-index: 1
@@ -142,6 +263,7 @@
 
     .button
       margin-top: 1rem
+      font-size: 1.2rem
       background-color: lighten(green, 5)
 
     #particles-js
@@ -163,8 +285,8 @@
 
     .links
       display: grid
-      grid-template-columns: repeat(3, 1fr)
       grid-column-gap: 1rem
+      grid-template-columns: repeat(4, 1fr)
 
       margin-top: 1rem
 
@@ -175,33 +297,53 @@
       a
         display: block
         width: 100%
-        padding: 0.5rem 1rem
 
         color: white
-        text-decoration: none
         background-color: black
-
-        border-radius: 4px
-
-        i
-          margin-right: 0.5rem
-
-        &:hover
-          box-shadow: 0 3px 15px 0 rgba(black, 0.1)
-          transform: translateY(-1px)
-
-        &:not(:first-of-type)
-          // margin-left: 1rem
 
   .language-features
     .wrapper
       display: grid
-      grid-template-columns: repeat(3, 1fr)
       grid-column-gap: 2rem
+      grid-template-columns: repeat(3, 1fr)
 
       @media (max-width: $media-tablet)
         grid-template-columns: 100%
         grid-row-gap: 2rem
+
+  .components, .wip-components
+    display: grid
+
+    grid-column-gap: 2rem
+    grid-row-gap: 2rem
+    grid-template-columns: repeat(3, 1fr)
+
+    margin-top: 1.5rem
+
+    .component
+      display: flex
+      flex-direction: column
+      justify-content: space-between
+
+      padding: 2rem
+      border: $border
+      border-radius: 6px
+
+      // box-shadow: 0 1px 5px 0 rgba(black, 0.2)
+
+      .down
+        margin-top: 1rem
+
+        .button
+          width: 100%
+          font-size: 90%
+          background-color: black
+
+      .description
+        margin-top: 1rem
+
+  .components
+    margin-bottom: 1.5rem
 
   .framework-features
     .wrapper
@@ -212,11 +354,68 @@
     .feature
       max-width: 100%
 
+    .code-split
+      display: grid
+      grid-column-gap: 1rem
+      grid-template-columns: auto auto
+      width: 100%
+
+      .split-block
+        max-width: 100%
+        overflow-x: auto
+
     .code-example
       max-width: 100%
 
       code
         padding: 1rem
         line-height: 1.4
-        border-radius: 4px
+        border-radius: 6px
+
+    .patreon-button-wrapper
+      display: flex
+      justify-content: center
+      width: 100%
+
+  .supporters
+    .wrapper
+      display: flex
+      flex-direction: column
+      justify-content: center
+      align-items: center
+
+      & > *:not(:first-child)
+        margin-top: 1rem
+
+    .wreath
+      height: 10rem
+      padding-bottom: 0.5rem
+
+    .patreon-button
+      display: inline-block
+      line-height: 0
+
+      &:hover
+        box-shadow: 0 3px 15px 0 rgba(black, 0.1)
+        transform: translateY(-1px)
+
+      img
+        height: 3rem
+
+    ul
+      padding: 0
+      text-align: center
+      list-style: none
+
+      .title
+        margin-bottom: 0.75rem
+        font-size: 1.2rem
+
+      li
+        font-weight: bold
+        font-size: 1.4rem
+
+      &.rare
+        .colored
+          color: blue
 </style>
