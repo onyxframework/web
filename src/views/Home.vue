@@ -348,7 +348,8 @@
 
     .wreath
       height: 10rem
-      padding-bottom: 0.5rem
+      padding-bottom: 1rem
+      border-bottom: $border
 
     .patreon-button
       display: inline-block
