@@ -291,6 +291,9 @@
 
     margin-top: 1.5rem
 
+    @media only screen and (max-width: 768px)
+      grid-template-columns: 1fr
+
     .component
       display: flex
       flex-direction: column
