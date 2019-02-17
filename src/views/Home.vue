@@ -124,48 +124,15 @@
             | All the framework components are designed to be as simple for newcomers as possible, hiding its complexity under powerful&nbsp;
             abbr(title="Domain Specific Language") DSL
             | , which reduces bolierplate code. Onyx respects configuration over convention, and all macros expand to clean, understandable code — no magic involved 🤓
-          br
-          .code-split
-            .split-block
-              h3 Explicit code
-              pre.code-example(v-highlight)
-                code.crystal.
-                  require "onyx-http"
+          pre.code-example(v-highlight)
+            code.crystal.
+              require "onyx/http"
 
-                  logger = Onyx::HTTP::Logger.new
-                  request_id = Onyx::HTTP::RequestID.new
-                  response_time = Onyx::HTTP::ResponseTime.new
-                  rescuer = Onyx::HTTP::Rescuers::Standard(Exception).new
-                  router_rescuer = Onyx::HTTP::Rescuers::RouteNotFound.new
+              Onyx.get "/" do |env|
+                env.response << "Hello Onyx!"
+              end
 
-                  router = Onyx::HTTP::Router.new do
-                    get "/" do |env|
-                      env.response << "Hello Onyx"
-                    end
-                  end
-
-                  server = Onyx::HTTP::Server.new(
-                    response_time,
-                    request_id,
-                    logger,
-                    rescuer,
-                    router_rescuer,
-                    router
-                  )
-
-                  server.bind_tcp(5000)
-                  server.listen
-            .split-block
-              h3 Same code, but with DSL
-              pre.code-example(v-highlight)
-                code.crystal.
-                  require "onyx/http"
-
-                  Onyx.get "/" do |env|
-                    env.response << "Hello Onyx!"
-                  end
-
-                  Onyx.listen(5000)
+              Onyx.listen(5000)
         .feature
           h1 Scales with your knowledge 🚀
           p
@@ -354,16 +321,6 @@
     .feature
       max-width: 100%
 
-    .code-split
-      display: grid
-      grid-column-gap: 1rem
-      grid-template-columns: auto auto
-      width: 100%
-
-      .split-block
-        max-width: 100%
-        overflow-x: auto
-
     .code-example
       max-width: 100%
 
@@ -371,11 +328,6 @@
         padding: 1rem
         line-height: 1.4
         border-radius: 6px
-
-    .patreon-button-wrapper
-      display: flex
-      justify-content: center
-      width: 100%
 
   .supporters
     .wrapper
