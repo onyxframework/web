@@ -162,6 +162,8 @@
         ul.rare
           .title Rare tier supporters:
           li
+            a.colored(href="https://seendex.ru") Alexander Maslov
+          li
             a.colored(href="https://github.com/ljuti") Lauri Jutila
         ul.special
           .title Special thanks:
