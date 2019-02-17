@@ -149,7 +149,9 @@
         .feature
           h1 Backed by you ❤️
           p
-            | Onyx Framework, as most of my other projects, is MIT-licensed, and its development is driven by the love of the community and businesses. Become a patron today to support a dozen of Crystal shards and projects maintained by me,&nbsp;
+            | Onyx Framework, as most of my other projects, is MIT-licensed, and its development is driven by the love of the community and businesses.&nbsp;
+            a(href="https://patreon.com/vladfaust") Become a patron
+            |  today to support a dozen of Crystal shards and projects maintained by me,&nbsp;
             a(target="_blank" href="https://vladfaust.com") Vlad Faust
             | .
     section.supporters
