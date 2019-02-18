@@ -84,14 +84,6 @@
               a.button(target="_blank" href="https://github.com/onyxframework/sql")
                 i.feather-github
                 span Open on GitHub
-          .component
-            .up
-              h2 Onyx::EDA
-              .description An Event-Driven Architecture framework to build reactive apps
-            .down
-              a.button(target="_blank" href="https://github.com/onyxframework/eda")
-                i.feather-github
-                span Open on GitHub
         h2
           abbr(title="Work In Progress") WIP
           |  components:
@@ -100,18 +92,14 @@
             .up
               h2 Onyx::CLI
               .description Official Command Line Interface to perform various tasks
-            .down
-              a.button(target="_blank" href="https://github.com/onyxframework/cli")
-                i.feather-github
-                span Open on GitHub
           .component
             .up
               h2 Onyx::GraphQL
               .description A business-grade type-safe GraphQL framework
-            .down
-              a.button(target="_blank" href="https://github.com/onyxframework/rest")
-                i.feather-github
-                span Open on GitHub
+          .component
+            .up
+              h2 Onyx::EDA
+              .description An Event-Driven Architecture framework to build reactive apps
     section.framework-features
       .wrapper
         .feature
