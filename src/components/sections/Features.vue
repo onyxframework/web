@@ -40,7 +40,7 @@
       grid-row-gap: 1.5rem
       grid-template-columns: 1fr 1fr 1fr
 
-      max-width: calc(#{$max-width} - 2rem)
+      max-width: calc(#{$max-width} + 4rem)
       padding: 3rem 2rem
 
       color: $color-text-black
