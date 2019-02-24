@@ -215,7 +215,8 @@
       border-radius: 3px
 
     h2
-      text-align: center
+      @media (min-width: 768px)
+        text-align: center
 
   footer
     padding-top: 3rem
