@@ -30,13 +30,16 @@ $color-green: #2ea626
     padding: 1.5rem
     color: $color-text-black
     background: white
+    border: 1px solid $color-light-gray
     border-radius: 6px
 
-    box-shadow: 0 4px 10px 2px rgba(black, 0.1)
+    transition: all 0.2s ease-out
 
-    &:hover
-      box-shadow: 0 4px 10px 2px rgba(black, 0.2)
-      transform: translateY(-4px)
+    .content
+      font-weight: normal
+
+    &:hover:not(.wip)
+      transform: translateY(-3px)
 
   .stripes
     position: absolute

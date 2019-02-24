@@ -15,4 +15,7 @@
     .wrapper
       display: grid
       grid-row-gap: 1.5rem
+
+      @media (max-width: 768px)
+        grid-row-gap: 3rem
 </style>

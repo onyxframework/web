@@ -1,22 +1,33 @@
 <template lang="pug">
-  .code-feature
+  .example
     div
       h2.title
         slot(name="title")
       slot(name="description")
-    div
+    div.code
       slot(name="example")
 </template>
 
-<style src="highlight.js/styles/darkula.css"></style>
+<style src="highlight.js/styles/monokai.css"></style>
+
+<style lang="sass">
+  .hljs-keyword, .hljs-title, .hljs-literal
+    font-weight: normal
+</style>
 
 <style lang="sass" scoped>
   @import '@/assets/styles/mixins.sass'
 
-  .code-feature
+  .example
     display: grid
-    grid-template-columns: 35% 65%
     grid-column-gap: 1.5rem
+    grid-template-columns: 35% 65%
+
+    @media (max-width: 768px)
+      grid-template-columns: auto
+
+      .code
+        display: none
 
     pre
       code
@@ -24,7 +35,6 @@
         padding-right: 0
         line-height: 1.4
         border-radius: 6px
-        box-shadow: 0 4px 10px 2px rgba(black, 0.1)
 
         &:not(:first-of-type)
           margin-top: 0.5rem
@@ -34,12 +44,11 @@
         p
           line-height: 1.4
 
-        a
-          text-decoration: underline
-
         code
           display: inline
-          padding: 0 0.35rem 0.1rem
+          padding: 0.2rem 0.35rem 0.2rem
+          font-size: 0.9rem
+          vertical-align: 0.05rem
           border-radius: 3px
 
           a
@@ -54,6 +63,9 @@
 
         img
           max-width: 100%
+
+        b
+          font-weight: bold
 
         .terminal-magenta
           color: #c47fd0

@@ -8,7 +8,9 @@
   ],
   "rules": {
     "no-empty-source": null,
+    "block-opening-brace-space-after": null,
     "block-opening-brace-space-before": null,
+    "block-closing-brace-space-before": null,
     "block-closing-brace-newline-before": null,
     "declaration-block-trailing-semicolon": "never",
     "indentation": null,

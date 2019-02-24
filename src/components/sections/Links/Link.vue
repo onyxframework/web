@@ -6,20 +6,8 @@
       p.content
         slot(name="content")
     div
-      a.button.small(:href="url")
-        slot(name="link-text")
+      slot(name="link")
 </template>
-
-<script>
-  export default {
-    props: {
-      url: {
-        type: String,
-        required: true
-      }
-    }
-  }
-</script>
 
 <style lang="sass" scoped>
   .link

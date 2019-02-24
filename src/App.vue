@@ -14,7 +14,6 @@
 
   *
     box-sizing: border-box
-    transition: all 0.2s ease-out
 
   body
     background-color: #1a1a1a

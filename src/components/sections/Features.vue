@@ -1,10 +1,21 @@
 <template lang="pug">
   section.features
-    .stripes
+    .stripes(v-if="displayStripes")
       .stripe
     .wrapper
       slot
 </template>
+
+<script>
+  export default {
+    props: {
+      displayStripes: {
+        type: Boolean,
+        default: true
+      }
+    }
+  }
+</script>
 
 <style lang="sass" scoped>
   @import '@/assets/styles/variables.sass'
@@ -25,12 +36,15 @@
 
     .wrapper
       display: grid
-      grid-template-columns: 1fr 1fr 1fr
       grid-column-gap: 1.5rem
       grid-row-gap: 1.5rem
+      grid-template-columns: 1fr 1fr 1fr
 
-      max-width: $max-width
-      padding: 2rem 0
+      max-width: calc(#{$max-width} - 2rem)
+      padding: 3rem 2rem
 
       color: $color-text-black
+
+      @media (max-width: 768px)
+        grid-template-columns: auto
 </style>

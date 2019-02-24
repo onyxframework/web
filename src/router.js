@@ -8,8 +8,23 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'home',
+      name: 'Home',
       component: Home
+    },
+    {
+      path: '/patrons',
+      name: 'Patrons',
+      component: () => import(/* webpackChunkName: "patrons" */ './views/Patrons.vue')
+    },
+    {
+      path: '/onyx',
+      name: 'Onyx',
+      component: () => import(/* webpackChunkName: "onyx" */ './views/Onyx.vue')
+    },
+    {
+      path: '/http',
+      name: 'HTTP',
+      component: () => import(/* webpackChunkName: "http" */ './views/HTTP.vue')
     },
     {
       path: '/rest',
@@ -20,11 +35,6 @@ export default new Router({
       path: '/sql',
       name: 'SQL',
       component: () => import(/* webpackChunkName: "sql" */ './views/SQL.vue')
-    },
-    {
-      path: '/background',
-      name: 'Background',
-      component: () => import(/* webpackChunkName: "background" */ './views/Background.vue')
     }
   ],
   scrollBehavior (to, from, savedPosition) {

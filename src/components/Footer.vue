@@ -5,45 +5,41 @@
         .copyright © Fancy Software LLC
       .column
       .column
-        h4.heading Products
+        h4.heading Components
         ul
           li
-            a(href="#") REST
+            router-link(to="/onyx") Onyx
           li
-            a(href="#") SQL
+            router-link(to="/http") HTTP
           li
-            a(href="#") Background
+            router-link(to="/rest") REST
+          li
+            router-link(to="/sql") SQL
       .column
         h4.heading Developers
         ul
           li
-            a(href="#") Docs
+            a(href="https://docs.onyxframework.org") Docs
           li
-            a(href="#") API
+            a(href="https://api.onyxframework.org") API
       .column
         h4.heading Resources
         ul
           li
-            a(href="#") GitHub
+            a(href="https://github.com/onyxframework") GitHub
           li
-            a(href="#") Gitter
+            a(href="https://gitter.im/onyxframework") Gitter
           li
-            a(href="#") Crystal Forum
-          li
-            a(href="#") Crystal Jobs
-          li
-            a(href="#") Licensing
+            a(href="https://crystaljobs.org") Crystal Jobs
       .column
-        h4.heading Company
+        h4.heading Project
         ul
+          li
+            a(href="https://blog.onyxframework.org") Blog
           li
             a(href="#") About
           li
-            a(href="#") Customers
-          li
-            a(href="#") Affiliate program
-          li
-            a(href="#") Jobs
+            router-link(to="/patrons") Patrons
 </template>
 
 <style lang="sass" scoped>
@@ -57,11 +53,18 @@
 
     .wrapper
       display: grid
+      grid-row-gap: 1.5rem
       grid-template-columns: repeat(6, 1fr)
       width: 100%
       max-width: 54rem
       padding-right: 2rem
       padding-left: 2rem
+
+      @media (max-width: 768px)
+        grid-template-columns: auto
+
+        .column
+          font-size: 1rem
 
     .copyright
       color: transparentize(white, 0.5)
@@ -79,6 +82,7 @@
 
       a
         color: inherit
+        font-weight: normal
 
         &:hover
           color: white

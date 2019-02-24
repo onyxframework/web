@@ -1,29 +1,14 @@
 <template lang="pug">
   section.hero
-    .stripes
-      .stripe
-      .stripe
+    slot(name="additional")
     .wrapper
-      router-link.logo(to="/")
-        img(src="/img/logo.svg")
-      h1.title
+      .title
         slot(name="title")
-      p.description
+      .description
         slot(name="description")
-      a.button.hover-raise(:href="buttonUrl")
-        slot(name="button")
+      .cta
+        slot(name="cta")
 </template>
-
-<script>
-  export default {
-    props: {
-      buttonUrl: {
-        type: String,
-        default: '#'
-      }
-    }
-  }
-</script>
 
 <style lang="sass">
   @import '@/assets/styles/mixins.sass'
@@ -32,27 +17,11 @@
     color: white
     text-align: center
 
-    .stripe:nth-of-type(1)
-      right: 0
-      bottom: -70%
-      width: 100%
-      height: 100%
-      background-color: transparentize(white, 0.9)
-      transform: skewY(-20deg)
-
-    .stripe:nth-of-type(2)
-      bottom: -70%
-      left: 0
-      width: 100%
-      height: 100%
-      background-color: transparentize(white, 0.9)
-      transform: skewY(7deg)
-
     .wrapper
       +center
       flex-direction: column
-      margin-top: 10rem
-      margin-bottom: 9rem
+      margin-top: 5rem
+      margin-bottom: 3.5rem
 
     .logo
       img
@@ -70,8 +39,8 @@
 
     .description
       max-width: 40rem
-      margin-top: 0.75rem
+      margin-top: 0.5rem
 
-    .button
-      margin-top: 1.25rem
+    .cta
+      margin-top: 1rem
 </style>

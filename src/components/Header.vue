@@ -4,13 +4,11 @@
       .left
         router-link.logo(to="/")
           img(src="/img/logo-name.svg")
-        router-link.sub(v-if="selectedComponent", to="selectedComponent.path") {{selectedComponent.name}}
+        router-link.sub(v-if="selectedPage", :to="selectedPage.path") {{selectedPage.name}}
       .right.menu
         a(:href="docsURL") Docs
         a(:href="apiURL") API
         a(:href="gitHubURL") GitHub
-        a(href="#") Pro
-        a(href="#") Enterprise
 </template>
 
 <script>
@@ -21,54 +19,64 @@
       Dropdown
     },
     props: {
-      component: {
+      page: {
         type: String,
         default: null
       }
     },
     data () {
       return {
-        components: [{
+        pages: [{
+          name: 'Onyx',
+          path: '/onyx',
+          component: true
+        }, {
+          name: 'HTTP',
+          path: '/http',
+          component: true
+        }, {
           name: 'REST',
-          path: '/rest'
+          path: '/rest',
+          component: true
         }, {
           name: 'SQL',
-          path: '/sql'
+          path: '/sql',
+          component: true
         }, {
-          name: 'Background',
-          path: '/background'
+          name: 'Patrons',
+          path: '/patrons',
+          component: false
         }]
       }
     },
     computed: {
-      selectedComponent () {
-        switch (this.component) {
+      selectedPage () {
+        switch (this.page) {
+        case 'onyx':
+          return this.pages[0]
+        case 'http':
+          return this.pages[1]
         case 'rest':
-          return this.components[0]
+          return this.pages[2]
         case 'sql':
-          return this.components[1]
-        case 'background':
-          return this.components[2]
+          return this.pages[3]
+        case 'patrons':
+          return this.pages[4]
         default:
           return null
         }
       },
       docsURL () {
-        let add = this.component ? this.component.path : ''
+        let add = (this.selectedPage && this.selectedPage.component) ? this.selectedPage.path : ''
         return 'https://docs.onyxframework.org' + add
       },
       apiURL () {
-        let add = this.component ? this.component.path : ''
+        let add = (this.selectedPage && this.selectedPage.component) ? this.selectedPage.path : ''
         return 'https://api.onyxframework.org' + add
       },
       gitHubURL () {
-        let add = this.component ? this.component.path : ''
+        let add = (this.selectedPage && this.selectedPage.component) ? this.selectedPage.path : ''
         return 'https://github.com/onyxframework' + add
-      }
-    },
-    methods: {
-      onSelected () {
-
       }
     }
   }
@@ -89,6 +97,9 @@
 
     a
       color: white
+      font-weight: normal
+
+      transition: all 0.2s ease-out
 
       &:hover
         opacity: 0.5
@@ -108,8 +119,12 @@
     line-height: 1
     vertical-align: middle
 
-    &:nth-child(2)
+    &.sub
       margin-left: 1rem
+      vertical-align: 0
+
+      @media (max-width: 768px)
+        display: none
 
   .logo img
     height: 1rem
