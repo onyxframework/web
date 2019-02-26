@@ -40,7 +40,7 @@
             a(href="https://blog.onyxframework.org") Blog
           li
             a(href="#") About
-          li
+          li.patrons
             router-link(to="/patrons") Patrons
 </template>
 
@@ -96,4 +96,8 @@
         li
           &:not(:first-of-type)
             margin-top: 0.75rem
+
+          &.patrons
+            color: gold
+            text-shadow: 0 0 20px gold
 </style>

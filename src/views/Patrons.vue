@@ -16,21 +16,21 @@
         .stripe
       .wrapper
         .tier-title.rare
-          .name-wrapper
-            .name Rare tier supporters
+          i.twa.twa-lg.twa-blue-heart
+          |  Rare tier supporters
         ul.supporters
           li
             a(href="https://github.com/ljuti" target="_blank") Lauri Jutila
           li
             a(href="https://seendex.ru" target="_blank") Alexander Maslov
         .tier-title.uncommon
-          .name-wrapper
-            .name Uncommon tier supporters
+          i.twa.twa-lg.twa-green-heart
+          |  Uncommon tier supporters
         ul.supporters
           li Dainel Vera
         .tier-title.special
-          .name-wrapper
-            .name Special thanks
+          i.twa.twa-lg.twa-pray
+          |  Special thanks
         ul.supporters
           li
             a(href="https://github.com/Pomis" target="_blank") Roman Ismagilov
@@ -70,9 +70,9 @@
       height: 90%
       background-image: url('/img/wreath.svg')
       background-repeat: round
-      background-size: 100px
+      background-size: 110px
       transform: skewY(-2deg)
-      opacity: 0.025
+      opacity: 0.05
 
     .button
       background-color: #f96854
@@ -111,22 +111,10 @@
         margin-bottom: -0.5rem
 
     .tier-title
-      $magic: 0.8rem
+      font-weight: bold
+      font-size: 1.5rem
 
-      width: 100%
-      margin-bottom: $magic
       text-align: center
-      border-bottom: 1.5px solid
-
-      .name-wrapper
-        margin-bottom: -$magic
-
-      .name
-        display: inline-block
-        padding: 0 1rem
-        font-weight: bold
-        font-size: 1.5rem
-        background-color: white
 
       &.rare
         color: #3f51b5
@@ -138,12 +126,15 @@
         color: #455a64
 
     ul.supporters
-      margin: 1rem 0
+      margin: 2rem 0
       padding: 0
       text-align: center
 
       li
         font-size: 1.1rem
+
+        a
+          color: inherit
 
   footer
     padding-top: 3rem
