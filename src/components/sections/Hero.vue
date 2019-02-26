@@ -10,7 +10,7 @@
         slot(name="cta")
 </template>
 
-<style lang="sass">
+<style lang="sass" scoped>
   @import '@/assets/styles/mixins.sass'
 
   .hero
@@ -19,20 +19,10 @@
 
     .wrapper
       +center
+
       flex-direction: column
       margin-top: 5rem
       margin-bottom: 3.5rem
-
-    .logo
-      img
-        height: 5rem
-        padding: 1rem
-        background-color: white
-        border-radius: 8px
-
-      &:hover
-        box-shadow: 0 3px 15px 0 rgba(black, 0.1)
-        transform: translateY(-2px)
 
     .title
       margin-top: 1.25rem
