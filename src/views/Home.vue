@@ -192,6 +192,7 @@
       margin-bottom: 9rem
 
     .logo
+      width: 6rem
       height: 6rem
       padding: 1rem
       background-color: white
