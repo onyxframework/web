@@ -11,6 +11,7 @@
   html, body
     margin: 0
     padding: 0
+    letter-spacing: 0.1px
 
   *
     box-sizing: border-box
