@@ -91,10 +91,11 @@
               h2.title Onyx::SQL
               p.description An SQL ORM for SQL databases. Features beautiful schema definition DSL and strongly-typed Query builder.
             router-link(to="/sql") Learn more →
-          .card.wip
+          router-link.card(to="/eda")
             .content
-              h2.title Onyx::EDA (WIP)
+              h2.title Onyx::EDA
               p.description An Event-Driven Architecture framework for Crystal to build reactive applications.
+            router-link(to="/eda") Learn more →
           .card.wip
             .content
               h2.title Onyx::CLI (WIP)

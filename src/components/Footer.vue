@@ -15,6 +15,8 @@
             router-link(to="/rest") REST
           li
             router-link(to="/sql") SQL
+          li
+            router-link(to="/eda") EDA
       .column
         h4.heading Developers
         ul

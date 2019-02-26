@@ -43,6 +43,10 @@
           path: '/sql',
           component: true
         }, {
+          name: 'EDA',
+          path: '/eda',
+          component: true
+        }, {
           name: 'Patrons',
           path: '/patrons',
           component: false
@@ -60,8 +64,10 @@
           return this.pages[2]
         case 'sql':
           return this.pages[3]
-        case 'patrons':
+        case 'eda':
           return this.pages[4]
+        case 'patrons':
+          return this.pages[5]
         default:
           return null
         }
