@@ -126,7 +126,7 @@
         color: #455a64
 
     ul.supporters
-      margin: 2rem 0
+      margin: 1rem 0
       padding: 0
       text-align: center
 
