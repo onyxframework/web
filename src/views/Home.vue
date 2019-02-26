@@ -8,7 +8,7 @@
       .wrapper
         img.logo(src="/img/logo.svg" draggable="false")
         h1.title Powerful framework for modern applications
-        p.description Built on Crystal, Onyx Framework brings previously unseen combination of speed and joy to the world of development.
+        p.description Built on Crystal, Onyx Framework brings previously unseen combination of speed and joy to the world of everyday development.
         a.button.hover-raise(href="https://docs.onyxframework.org") Get started
     features
       feature
