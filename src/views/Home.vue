@@ -71,31 +71,28 @@
         .stripe
       .wrapper
         .cards
-          router-link.card(to="/onyx")
-            .content
-              h2.title Onyx
-              p.description Top-level macros for daily development, essentially a glue between all other components.
-            router-link(to="/onyx") Learn more →
           router-link.card(to="/http")
             .content
               h2.title Onyx::HTTP
-              p.description A collection of HTTP handlers (i.e. middleware) to build modern HTTP applications. Acts as foundation for other components.
+              p.description
+                | An opinionated web framework to build scalable web applications.
             router-link(to="/http") Learn more →
-          router-link.card(to="/rest")
-            .content
-              h2.title Onyx::REST
-              p.description An opinionated REST framework with separate business and rendering layers, inspired by Hanami, powered by Onyx::HTTP.
-            router-link(to="/rest") Learn more →
           router-link.card(to="/sql")
             .content
               h2.title Onyx::SQL
-              p.description An SQL ORM for SQL databases. Features beautiful schema definition DSL and strongly-typed Query builder.
+              p.description
+                | A delightful, type-safe and database-agnostic SQL ORM with clean architecture.
             router-link(to="/sql") Learn more →
           router-link.card(to="/eda")
             .content
               h2.title Onyx::EDA
-              p.description An Event-Driven Architecture framework for Crystal to build reactive applications.
+              p.description
+                | An Event-Driven Architecture framework to build reactive applications.
             router-link(to="/eda") Learn more →
+          .card.wip
+            .content
+              h2.title Onyx::GraphQL (WIP)
+              p.description A powerful GraphQL framework for faster development cycles.
           .card.wip
             .content
               h2.title Onyx::CLI (WIP)
@@ -256,6 +253,9 @@
         grid-template-columns: auto
 
     .card
+      .title
+        font-size: 1.3rem
+
       .description
         margin-bottom: 1rem
 

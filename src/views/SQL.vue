@@ -5,7 +5,7 @@
       template(#title)
         h1 Onyx::SQL
       template(#description)
-        p A delightful SQL ORM for Crystal.
+        p A delightful database-agnostic SQL ORM.
       template(#cta)
         a(href="https://docs.onyxframework.org/sql").button.hover-raise Read the docs
     features(:displayStripes="false")
@@ -14,7 +14,12 @@
           i.twa.twa-lg.twa-muscle
           |  Powerful
         template(#content)
-          p Define fields and references, build type-safe queries and work with any SQL database.
+          p
+            | Define fields and references, build&nbsp;
+            b type-safe
+            |  queries and work with&nbsp;
+            b any
+            |  SQL database.
       feature
         template(#title)
           i.twa.twa-lg.twa-leaves
@@ -36,18 +41,17 @@
     examples
       example
         template(#title)
-          i.twa.twa-lg.twa-lock
-          |  Type-safe models
+          i.twa.twa-lg.twa-lollipop
+          |  Sweet DSL
         template(#description)
           p(v-highlight)
             | Special&nbsp;
             code.crystal schema
             |  macro makes definition of any model fast, safe and enjoyable.
-          p The DSL supports almost all types of references, i.e. in the code aside posts is a one-to-many reference, and referrer is many-to-one.
           p
             i.twa.twa-books
             |&nbsp;
-            a(href="https://api.onyxframework.org/sql/Onyx/SQL/Model.html") Read Model docs →
+            a(href="https://docs.onyxframework.org/sql/schema") Read Schema docs →
         template(#example)
           pre(v-highlight)
             code.crystal.
@@ -58,108 +62,74 @@
 
                 schema users do
                   pkey id : Int32
-                  type name : String
-                  type last_name : String
-                  type created_at : Time, default: true
-                  type posts : Array(Post), foreign_key: "user_id"
-                  type referrer : self, key: "referrer_id"
+
+                  type name : String,
+                    not_null: true
+                  type created_at : Time,
+                    not_null: true,
+                    default: true
                 end
               end
-
-              user = User.new(name: "John")
-
-              query = "SELECT * FROM users WHERE id = 1"
-              user = Onyx.query(User, query).first
-              pp user # =&gt; &lt;User @id=1 @name="John"&gt;
       example
         template(#title)
-          i.twa.twa-lg.twa-construction-worker
+          i.twa.twa-lg.twa-elephant
           |  Query builder
         template(#description)
-          p(v-highlight)
-            | With Onyx::SQL comes the query builder, beautiful and intuitive, which would raise in compilation time on argument type mismatch on many methods, including&nbsp;
-            code.crystal where
-            |  and&nbsp;
-            code.crystal join
-            | .
+          p The SQL query builder would raise in compilation time on argument type mismatch.
           p
             i.twa.twa-books
             |&nbsp;
-            a(href="https://api.onyxframework.org/sql/Onyx/SQL/Query.html") Read Query docs →
+            a(href="https://docs.onyxframework.org/sql/query") Read Query docs →
         template(#example)
           pre(v-highlight)
             code.crystal.
-              user = User.new(name: "John")
-              user = Onyx.query(user.insert).first
-              pp user.id # =&gt; 1
+              user = Onyx.query(User.where(id: 1)).first?
+              pp user
+              # &lt;User @id=1, @name="John",
+              #   @created_at=#&lt;Time ...&gt;&gt;
 
-              changeset = user.changeset
-
-              # Compilation-time error, `name` must be `String`
-              changeset.update(name: 42)
-
-              changeset.update(name: "Jake") # OK
-              Onyx.exec(user.update(changeset))
-
-              # Compilation-time error, `id` must be `Int32`
-              query = User.where(id: "foo")
-
-              query = User.where(id: 1) # OK
-              pp query.to_s # "SELECT * FROM users WHERE id = ?"
-
-              user = Onyx.query(query).first
-              pp user # =&gt; &lt;User @id=1 @name="John"&gt;
+              User.where(id: "foo") # Compilation-time error
+              User.select(:unknown) # Compilation-time error
       example
         template(#title)
           i.twa.twa-lg.twa-link
-          |  Powerful joins
+          |  Joins
         template(#description)
           p The query builder is able to join references, optionally preloading them right into the queried model.
           p
             i.twa.twa-books
             |&nbsp;
-            a(href="https://api.onyxframework.org/sql/Onyx/SQL/Query.html#join%28%2A%2Con%3AString%3F%3Dnil%2Cas_as%3AString%3F%3Dnil%2Ctype%3AJoinType%3D%3Ainner%2C%2A%2Avalues%3A%2A%2AU%2C%26block%29%3AselfforallU-instance-method") Read join docs →
+            a(href="https://docs.onyxframework.org/sql/query") Read Query docs →
         template(#example)
           pre(v-highlight)
             code.crystal.
-              class Post
+              cclass Post
                 include Onyx::SQL::Model
 
                 schema posts do
                   pkey id : Int32
-                  type content : String
-                  type author : User, key: "user_id"
+
+                  type author : User,
+                    not_null: true,
+                    key: "author_id"
+                  type content : String,
+                    not_null: true
+                  type created_at : Time,
+                    not_null: true,
+                    default: true
                 end
               end
 
-              query = Post
-                .select(:id)
-                .where(id: 1)
-                .join(author: true) do |q|
-                  q.select(:name)
+              posts = Onyx.query(Post
+                .join(author: true) do |x|
+                  x.select(:id, :name)
+                  x.where(name: "John")
                 end
+              )
 
-              post = repo.query(query).first
-              pp post # =&gt; &lt;Post @author=&lt;User @name="John"&gt;&gt;
-      example
-        template(#title)
-          i.twa.twa-lg.twa-scroll
-          |  Beautiful logging
-        template(#description)
-          p A number of built-in loggers will log valuable information for further analysis.
-          p
-            i.twa.twa-books
-            |&nbsp;
-            a(href="https://api.onyxframework.org/sql/Onyx/SQL/Repository/Logger.html") Read Logger docs →
-        template(#example)
-          pre(v-highlight)
-            code.crystal.
-              Onyx.query(User.where(id: 1))
-            code.
-              <span class="terminal-magenta">[sql] SELECT * FROM users WHERE id = ?</span>
-              <span class="terminal-gray">115µs</span>
-              <span class="terminal-magenta">[map] User</span>
-              <span class="terminal-gray">20µs</span>
+              pp posts.first
+              # &lt;Post @id=1, @author=&lt;User @id=1 @name="John"&gt;,
+              #   @content="Hello, world!"&gt;
     links(path="/sql")
     app-footer
 </template>

@@ -28,11 +28,6 @@ export default new Router({
       component: () => import(/* webpackChunkName: "http" */ './views/HTTP.vue')
     },
     {
-      path: '/rest',
-      name: 'REST',
-      component: () => import(/* webpackChunkName: "rest" */ './views/REST.vue')
-    },
-    {
       path: '/sql',
       name: 'SQL',
       component: () => import(/* webpackChunkName: "sql" */ './views/SQL.vue')

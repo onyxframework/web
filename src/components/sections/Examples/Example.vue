@@ -20,8 +20,8 @@
 
   .example
     display: grid
-    grid-column-gap: 1.5rem
-    grid-template-columns: 35% 65%
+    grid-column-gap: 1rem
+    grid-template-columns: 1fr 2fr
 
     @media (max-width: 768px)
       grid-template-columns: auto
@@ -31,7 +31,7 @@
 
     pre
       code
-        padding: 1rem
+        padding: 1.5rem
         padding-right: 0
         line-height: 1.4
         border-radius: 6px

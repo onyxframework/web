@@ -52,7 +52,7 @@
             code.crystal.
               require "onyx/eda"
 
-              struct UserCreated
+              struct NewUser
                 include Onyx::EDA::Event
 
                 getter id
@@ -75,7 +75,7 @@
             code.crystal.
               class NewUserNotifier
                 def initialize
-                  channel.subscribe(self, UserCreated) do |event|
+                  channel.subscribe(self, NewUser) do |event|
                     puts "New user created with id \#{event.id}"
                   end
                 end
