@@ -5,7 +5,7 @@
       template(#title)
         h1 Onyx::SQL
       template(#description)
-        p A delightful database-agnostic SQL ORM.
+        p A delightful, type-safe and database-agnostic SQL ORM with clean architecture.
       template(#cta)
         a(href="https://docs.onyxframework.org/sql").button.hover-raise Read the docs
     features(:displayStripes="false")

@@ -5,7 +5,7 @@
       template(#title)
         h1 Onyx::HTTP
       template(#description)
-        p An opinionated framework for scalable web.
+        p An opinionated web framework to build scalable web applications.
       template(#cta)
         a(href="https://docs.onyxframework.org/http").button.hover-raise Read the docs
     features(:displayStripes="false")

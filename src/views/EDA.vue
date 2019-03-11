@@ -63,7 +63,7 @@
       example
         template(#title)
           i.twa.twa-lg.twa-two
-          |  Subscribe
+          |  Subscribe to events
         template(#description)
           p Subscribers will get notified as soon as the event is emitted.
           p
@@ -75,7 +75,7 @@
             code.crystal.
               class NewUserNotifier
                 def initialize
-                  channel.subscribe(self, NewUser) do |event|
+                  Onyx.subscribe(self, NewUser) do |event|
                     puts "New user created with id \#{event.id}"
                   end
                 end
@@ -84,8 +84,26 @@
               NewUserNotifier.new
       example
         template(#title)
+          i.twa.twa-lg.twa-three
+          |  Emit events
+        template(#description)
+          p That easy.
+          p
+            i.twa.twa-books
+            |&nbsp;
+            a(href="https://docs.onyxframework.org/eda/subscriptions") Read about subscriptions →
+        template(#example)
+          pre(v-highlight)
+            code.crystal.
+              Onyx.emit(NewUser.new(1))
+
+              # I even have to write some more words
+              # To align them with the paragraph aside
+              # One line, can you imagine that?!
+      example
+        template(#title)
           i.twa.twa-lg.twa-electric-plug
-          |  Choose backend
+          |  Choose a backend
         template(#description)
           p In addition to default in-memory channel, you can (and should) use Redis channel to build distributed applications.
           p
@@ -99,7 +117,9 @@
 
               # From now on, all events are emitted to
               # a Redis stream. And all subscribers
-              # read from this stream as well
+              # read from this stream as well.
+              # It's like magic, but not really.
+              # The code is pretty simple and transparent.
     links(path="/eda")
     app-footer
 </template>
