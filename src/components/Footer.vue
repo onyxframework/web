@@ -8,11 +8,7 @@
         h4.heading Components
         ul
           li
-            router-link(to="/onyx") Onyx
-          li
             router-link(to="/http") HTTP
-          li
-            router-link(to="/rest") REST
           li
             router-link(to="/sql") SQL
           li
