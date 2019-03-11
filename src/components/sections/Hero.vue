@@ -28,8 +28,9 @@
       margin-top: 1.25rem
 
     .description
-      max-width: 40rem
+      max-width: 20rem
       margin-top: 0.5rem
+      font-size: 1.1rem
 
     .cta
       margin-top: 1rem
