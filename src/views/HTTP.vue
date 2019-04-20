@@ -53,11 +53,11 @@
             code.crystal.
               require "onyx/http"
 
-              Onyx.get "/" do |env|
+              Onyx::HTTP.get "/" do |env|
                 env.response << "Hello, world!"
               end
 
-              Onyx.listen
+              Onyx::HTTP.listen
       example
         template(#title)
           i.twa.twa-lg.twa-bus-stop
@@ -98,7 +98,7 @@
                 end
               end
 
-              Onyx.get "/users/:id", GetUser
+              Onyx::HTTP.get "/users/:id", GetUser
       example
         template(#title)
           i.twa.twa-lg.twa-eyes
@@ -141,7 +141,7 @@
                 end
               end
 
-              Onyx.ws "/", Echo
+              Onyx::HTTP.ws "/", Echo
     links(path="/http")
     app-footer
 </template>

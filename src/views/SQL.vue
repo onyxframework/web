@@ -65,6 +65,7 @@
 
                   type name : String,
                     not_null: true
+
                   type created_at : Time,
                     not_null: true,
                     default: true
@@ -83,7 +84,7 @@
         template(#example)
           pre(v-highlight)
             code.crystal.
-              user = Onyx.query(User.where(id: 1)).first?
+              user = Onyx::SQL.query(User.where(id: 1)).first?
               pp user
               # &lt;User @id=1, @name="John",
               #   @created_at=#&lt;Time ...&gt;&gt;
@@ -112,15 +113,17 @@
                   type author : User,
                     not_null: true,
                     key: "author_id"
+
                   type content : String,
                     not_null: true
+
                   type created_at : Time,
                     not_null: true,
                     default: true
                 end
               end
 
-              posts = Onyx.query(Post
+              posts = Onyx::SQL.query(Post
                 .join(author: true) do |x|
                   x.select(:id, :name)
                   x.where(name: "John")

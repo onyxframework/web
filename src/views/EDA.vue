@@ -50,7 +50,7 @@
         template(#example)
           pre(v-highlight)
             code.crystal.
-              require "onyx/eda"
+              require "onyx/eda/memory"
 
               struct NewUser
                 include Onyx::EDA::Event
@@ -74,14 +74,14 @@
           pre(v-highlight)
             code.crystal.
               class NewUserNotifier
-                def initialize
-                  Onyx.subscribe(self, NewUser) do |event|
-                    puts "New user created with id \#{event.id}"
-                  end
+                include Onyx::EDA::Subscriber(NewUser)
+
+                def handle(event)
+                  puts "New user created with id \#{event.id}"
                 end
               end
 
-              NewUserNotifier.new
+              NewUserNotifier.new.subscribe(Onyx::EDA.memory)
       example
         template(#title)
           i.twa.twa-lg.twa-three
@@ -95,7 +95,7 @@
         template(#example)
           pre(v-highlight)
             code.crystal.
-              Onyx.emit(NewUser.new(1))
+              Onyx::EDA.memory.emit(NewUser.new(1))
 
               # I even have to write some more words
               # To align them with the paragraph aside
@@ -103,9 +103,9 @@
       example
         template(#title)
           i.twa.twa-lg.twa-electric-plug
-          |  Choose a backend
+          |  Backend of your choice
         template(#description)
-          p In addition to default in-memory channel, you can (and should) use Redis channel to build distributed applications.
+          p In addition to an in-memory channel, you can (and should) use Redis channel to build distributed applications.
           p
             i.twa.twa-books
             |&nbsp;
@@ -113,7 +113,9 @@
         template(#example)
           pre(v-highlight)
             code.crystal.
-              Onyx.channel(:redis)
+              require "onyx/eda/redis"
+
+              NewUserNotifier.new.subscribe(Onyx::EDA.redis)
 
               # From now on, all events are emitted to
               # a Redis stream. And all subscribers
