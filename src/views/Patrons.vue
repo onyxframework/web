@@ -27,7 +27,6 @@
           i.twa.twa-lg.twa-green-heart
           |  Uncommon tier supporters
         ul.supporters
-          li Dainel Vera
           li Anton Yordanov
         .tier-title.special
           i.twa.twa-lg.twa-pray
