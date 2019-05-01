@@ -28,6 +28,7 @@
           |  Uncommon tier supporters
         ul.supporters
           li Anton Yordanov
+          li Dainel Vera
         .tier-title.special
           i.twa.twa-lg.twa-pray
           |  Special thanks
