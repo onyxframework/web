@@ -1,39 +1,39 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>
-      https://onyxframework.org
+      https://onyxframework.com
     </loc>
     <priority>1.0</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
     <loc>
-      https://onyxframework.org/onyx
+      https://onyxframework.com/onyx
     </loc>
   </url>
   <url>
     <loc>
-      https://onyxframework.org/http
+      https://onyxframework.com/http
     </loc>
   </url>
   <url>
     <loc>
-      https://onyxframework.org/rest
+      https://onyxframework.com/rest
     </loc>
   </url>
   <url>
     <loc>
-      https://onyxframework.org/sql
+      https://onyxframework.com/sql
     </loc>
   </url>
   <url>
     <loc>
-      https://onyxframework.org/eda
+      https://onyxframework.com/eda
     </loc>
   </url>
   <url>
     <loc>
-      https://onyxframework.org/patrons
+      https://onyxframework.com/patrons
     </loc>
     <changefreq>weekly</changefreq>
   </url>

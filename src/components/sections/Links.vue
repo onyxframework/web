@@ -7,7 +7,7 @@
           |  Documentation
         template(#content) A well-organaized online-book with code examples will guide you through the world of development with Onyx.
         template(#link)
-          a.button.small(:href="'https://docs.onyxframework.org' + path") Explore the docs
+          a.button.small(:href="'https://docs.onyxframework.com' + path") Explore the docs
       a-link
         template(#title)
           i.twa.twa-lg.twa-gear
@@ -15,7 +15,7 @@
         template(#content)
           | Dive into raw methods and classes documentation with automatically built API docs.
         template(#link)
-          a.button.small(:href="'https://api.onyxframework.org' + path") Open the API
+          a.button.small(:href="'https://api.onyxframework.com' + path") Open the API
       a-link
         template(#title)
           i.twa.twa-lg.twa-speech-balloon
@@ -47,35 +47,35 @@
 </template>
 
 <script>
-  import Link from './Links/Link.vue'
+import Link from "./Links/Link.vue";
 
-  export default {
-    components: {
-      ALink: Link
+export default {
+  components: {
+    ALink: Link,
+  },
+  props: {
+    path: {
+      type: String,
+      required: true,
     },
-    props: {
-      path: {
-        type: String,
-        required: true
-      }
-    }
-  }
+  },
+};
 </script>
 
 <style lang="sass" scoped>
-  @import '@/assets/styles/variables.sass'
+@import '@/assets/styles/variables.sass'
 
-  .links
-    padding: 3rem 0
-    background-color: white
-    border-top: 1px solid $color-light-gray
+.links
+  padding: 3rem 0
+  background-color: white
+  border-top: 1px solid $color-light-gray
 
-    .wrapper
-      display: grid
-      grid-column-gap: 1.5rem
-      grid-row-gap: 2rem
-      grid-template-columns: 1fr 1fr
+  .wrapper
+    display: grid
+    grid-column-gap: 1.5rem
+    grid-row-gap: 2rem
+    grid-template-columns: 1fr 1fr
 
-      @media (max-width: 768px)
-        grid-template-columns: auto
+    @media (max-width: 768px)
+      grid-template-columns: auto
 </style>

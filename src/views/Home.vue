@@ -9,7 +9,7 @@
         img.logo(src="/img/logo.svg" draggable="false")
         h1.title Powerful framework for modern applications
         p.description Built on Crystal, Onyx Framework brings previously unseen combination of speed and joy to the world of everyday development.
-        a.button.hover-raise(href="https://docs.onyxframework.org") Get started
+        a.button.hover-raise(href="https://docs.onyxframework.com") Get started
     features
       feature
         template(slot="title")
@@ -126,12 +126,12 @@
       .stripes
         .stripe
       .wrapper
-        a.card(href="https://blog.onyxframework.org")
+        a.card(href="https://blog.onyxframework.com")
           h2.header
             i.twa.twa-lg.twa-newspaper
             |  Visit our blog →
           p.content Read Onyx Framework development and community news, learn about its powers and how-to's.
-        a.card(href="https://docs.onyxframework.org")
+        a.card(href="https://docs.onyxframework.com")
           h2.header
             i.twa.twa-lg.twa-books
             |  Explore the docs →
@@ -140,244 +140,244 @@
 </template>
 
 <script>
-  import Header from '@/components/Header.vue'
-  import Footer from '@/components/Footer.vue'
-  import Features from '@/components/sections/Features.vue'
-  import Feature from '@/components/sections/Features/Feature.vue'
+import Header from "@/components/Header.vue";
+import Footer from "@/components/Footer.vue";
+import Features from "@/components/sections/Features.vue";
+import Feature from "@/components/sections/Features/Feature.vue";
 
-  export default {
-    components: {
-      AppHeader: Header,
-      AppFooter: Footer,
-      Features,
-      Feature
-    }
-  }
+export default {
+  components: {
+    AppHeader: Header,
+    AppFooter: Footer,
+    Features,
+    Feature,
+  },
+};
 </script>
 
 <style lang="sass" scoped>
-  @import '@/assets/styles/variables.sass'
-  @import '@/assets/styles/mixins.sass'
+@import '@/assets/styles/variables.sass'
+@import '@/assets/styles/mixins.sass'
 
-  $border: 1px solid $color-light-gray
+$border: 1px solid $color-light-gray
 
-  section.hero
-    color: white
-    text-align: center
+section.hero
+  color: white
+  text-align: center
 
-    .stripe:nth-of-type(1)
-      right: 0
-      bottom: -70%
-      width: 100%
-      height: 100%
-      background-color: transparentize(white, 0.9)
-      transform: skewY(-20deg)
+  .stripe:nth-of-type(1)
+    right: 0
+    bottom: -70%
+    width: 100%
+    height: 100%
+    background-color: transparentize(white, 0.9)
+    transform: skewY(-20deg)
 
-    .stripe:nth-of-type(2)
-      bottom: -70%
-      left: 0
-      width: 100%
-      height: 100%
-      background-color: transparentize(white, 0.9)
-      transform: skewY(7deg)
+  .stripe:nth-of-type(2)
+    bottom: -70%
+    left: 0
+    width: 100%
+    height: 100%
+    background-color: transparentize(white, 0.9)
+    transform: skewY(7deg)
 
-    .wrapper
-      +center
+  .wrapper
+    +center
 
-      flex-direction: column
-      margin-top: 10rem
-      margin-bottom: 9rem
+    flex-direction: column
+    margin-top: 10rem
+    margin-bottom: 9rem
 
-    .logo
-      width: 6rem
-      height: 6rem
-      padding: 1rem
-      background-color: white
-      border-radius: 8px
+  .logo
+    width: 6rem
+    height: 6rem
+    padding: 1rem
+    background-color: white
+    border-radius: 8px
 
+  .title
+    margin-top: 1.25rem
+
+  .description
+    max-width: 40rem
+    margin-top: 0.75rem
+    font-size: 1.2rem
+
+  .button
+    margin-top: 1.25rem
+
+section.features
+  z-index: 2
+
+section.components
+  padding: 3rem 0 7rem
+  background-color: darken(white, 5)
+  border-top: $border
+
+  .bg
+    position: absolute
+    width: 100%
+    height: 100%
+    background-image: url('/img/circuit-board.svg')
+    background-position: cover
+    opacity: 0.025
+
+  .stripe:nth-of-type(1)
+    top: -2rem
+    left: 0
+    z-index: 0
+    width: 100%
+    height: 4rem
+    background-color: white
+    transform: skewY(-2deg)
+
+  .wrapper
+    +center
+    flex-direction: column
+
+    padding-top: 3rem
+
+    > *:not(:first-child)
+      margin-top: 1.5rem
+
+    .additional a
+      font-weight: bold
+
+  .cards
+    display: grid
+    grid-column-gap: 1.5rem
+    grid-row-gap: 1.5rem
+    grid-template-columns: 1fr 1fr 1fr
+
+    @media (max-width: 768px)
+      grid-template-columns: auto
+
+  .card
     .title
-      margin-top: 1.25rem
+      font-size: 1.3rem
 
     .description
-      max-width: 40rem
-      margin-top: 0.75rem
-      font-size: 1.2rem
+      margin-bottom: 1rem
 
-    .button
-      margin-top: 1.25rem
+    a /* stylelint-disable no-descending-specificity */
+      &:hover
+        color: black
 
-  section.features
-    z-index: 2
+    &.wip
+      color: transparentize(black, 0.6)
+      cursor: not-allowed
 
-  section.components
-    padding: 3rem 0 7rem
-    background-color: darken(white, 5)
-    border-top: $border
+    .content
+      z-index: 1
 
-    .bg
-      position: absolute
-      width: 100%
-      height: 100%
-      background-image: url('/img/circuit-board.svg')
-      background-position: cover
-      opacity: 0.025
+section.community
+  +center
 
-    .stripe:nth-of-type(1)
-      top: -2rem
-      left: 0
-      z-index: 0
-      width: 100%
-      height: 4rem
-      background-color: white
-      transform: skewY(-2deg)
+  color: $color-text-black
+  background-color: white
+  border-top: $border
 
-    .wrapper
-      +center
+  .stripe:nth-of-type(1)
+    top: -3rem
+    left: 0
+    z-index: 0
+    width: 100%
+    height: 6rem
+    background-color: white
+    transform: skewY(-2deg)
+
+  /* stylelint-disable no-descending-specificity, rule-empty-line-before */
+  .wrapper
+    display: grid
+    grid-column-gap: 0
+    grid-row-gap: 3rem
+    grid-template-columns: 1fr 1fr
+
+    @media (max-width: 768px)
+      grid-template-columns: auto
+      padding: 3rem 2rem
+
+    .item
+      display: flex
       flex-direction: column
+      justify-content: space-between
 
-      padding-top: 3rem
+      .link
+        margin-top: 1rem
 
-      > *:not(:first-child)
-        margin-top: 1.5rem
-
-      .additional a
-        font-weight: bold
-
-    .cards
-      display: grid
-      grid-column-gap: 1.5rem
-      grid-row-gap: 1.5rem
-      grid-template-columns: 1fr 1fr 1fr
-
-      @media (max-width: 768px)
-        grid-template-columns: auto
-
-    .card
-      .title
-        font-size: 1.3rem
-
-      .description
-        margin-bottom: 1rem
-
-      a /* stylelint-disable no-descending-specificity */
-        &:hover
+        &:hover /* stylelint-disable no-descending-specificity */
           color: black
 
-      &.wip
-        color: transparentize(black, 0.6)
-        cursor: not-allowed
-
-      .content
-        z-index: 1
-
-  section.community
-    +center
-
-    color: $color-text-black
-    background-color: white
-    border-top: $border
-
-    .stripe:nth-of-type(1)
-      top: -3rem
-      left: 0
-      z-index: 0
-      width: 100%
-      height: 6rem
-      background-color: white
-      transform: skewY(-2deg)
-
-    /* stylelint-disable no-descending-specificity, rule-empty-line-before */
-    .wrapper
-      display: grid
-      grid-column-gap: 0
-      grid-row-gap: 3rem
-      grid-template-columns: 1fr 1fr
-
-      @media (max-width: 768px)
-        grid-template-columns: auto
+      @media (min-width: 768px)
         padding: 3rem 2rem
 
-      .item
-        display: flex
-        flex-direction: column
-        justify-content: space-between
+        &:first-of-type
+          padding-left: 0
 
-        .link
-          margin-top: 1rem
+        &:last-of-type
+          padding-right: 0
 
-          &:hover /* stylelint-disable no-descending-specificity */
-            color: black
+        &:not(:first-of-type)
+          border-left: $border
 
-        @media (min-width: 768px)
-          padding: 3rem 2rem
+section.customers
+  +center
 
-          &:first-of-type
-            padding-left: 0
+  padding: 2rem 0
 
-          &:last-of-type
-            padding-right: 0
+  background-color: white
+  border-top: $border
 
-          &:not(:first-of-type)
-            border-left: $border
-
-  section.customers
+  .wrapper
     +center
 
-    padding: 2rem 0
+    width: $max-width
 
-    background-color: white
-    border-top: $border
-
-    .wrapper
+    a /* stylelint-disable no-descending-specificity */
       +center
+      margin: 0 2rem
 
-      width: $max-width
+      transition: all 0.2s ease-out
 
-      a /* stylelint-disable no-descending-specificity */
-        +center
-        margin: 0 2rem
+      img
+        max-width: 100%
+        max-height: 3rem
+        opacity: 0.5
+        filter: grayscale(100%)
 
-        transition: all 0.2s ease-out
+      &:hover
+        transform: translateY(-4px)
 
         img
-          max-width: 100%
-          max-height: 3rem
-          opacity: 0.5
-          filter: grayscale(100%)
+          opacity: 1
+          filter: none
 
-        &:hover
-          transform: translateY(-4px)
+section.bottom
+  +center
 
-          img
-            opacity: 1
-            filter: none
+  padding-bottom: 3rem
+  color: $color-text-black
 
-  section.bottom
-    +center
+  .stripe:nth-of-type(1)
+    top: -6rem
+    left: 0
+    width: 100%
+    height: 12rem
+    background-color: white
+    transform: skewY(-2deg)
 
-    padding-bottom: 3rem
-    color: $color-text-black
+    @media (max-width: 768px)
+      height: 30rem
 
-    .stripe:nth-of-type(1)
-      top: -6rem
-      left: 0
-      width: 100%
-      height: 12rem
-      background-color: white
-      transform: skewY(-2deg)
+  .wrapper
+    display: grid
+    grid-column-gap: 1.5rem
+    grid-row-gap: 1.5rem
+    grid-template-columns: 1fr 1fr
 
-      @media (max-width: 768px)
-        height: 30rem
+    @media (max-width: 768px)
+      grid-template-columns: auto
 
-    .wrapper
-      display: grid
-      grid-column-gap: 1.5rem
-      grid-row-gap: 1.5rem
-      grid-template-columns: 1fr 1fr
-
-      @media (max-width: 768px)
-        grid-template-columns: auto
-
-      .card
-        padding: 2rem
+    .card
+      padding: 2rem
 </style>

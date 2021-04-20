@@ -7,7 +7,7 @@
       template(#description)
         p An Event-Driven Architecture framework to build reactive applications.
       template(#cta)
-        a(href="https://docs.onyxframework.org/http").button.hover-raise Read the docs
+        a(href="https://docs.onyxframework.com/http").button.hover-raise Read the docs
     features(:displayStripes="false")
       feature
         template(#title)
@@ -46,7 +46,7 @@
           p
             i.twa.twa-books
             |&nbsp;
-            a(href="https://docs.onyxframework.org/eda") Get started →
+            a(href="https://docs.onyxframework.com/eda") Get started →
         template(#example)
           pre(v-highlight)
             code.crystal.
@@ -69,7 +69,7 @@
           p
             i.twa.twa-books
             |&nbsp;
-            a(href="https://docs.onyxframework.org/eda/subscriptions") Read about subscriptions →
+            a(href="https://docs.onyxframework.com/eda/subscriptions") Read about subscriptions →
         template(#example)
           pre(v-highlight)
             code.crystal.
@@ -91,7 +91,7 @@
           p
             i.twa.twa-books
             |&nbsp;
-            a(href="https://docs.onyxframework.org/eda/subscriptions") Read about subscriptions →
+            a(href="https://docs.onyxframework.com/eda/subscriptions") Read about subscriptions →
         template(#example)
           pre(v-highlight)
             code.crystal.
@@ -109,7 +109,7 @@
           p
             i.twa.twa-books
             |&nbsp;
-            a(href="https://docs.onyxframework.org/eda/channel/redis") Read about Redis channel →
+            a(href="https://docs.onyxframework.com/eda/channel/redis") Read about Redis channel →
         template(#example)
           pre(v-highlight)
             code.crystal.
@@ -127,32 +127,32 @@
 </template>
 
 <script>
-  import Header from '@/components/Header.vue'
-  import Footer from '@/components/Footer.vue'
-  import Hero from '@/components/sections/Hero.vue'
-  import Features from '@/components/sections/Features.vue'
-  import Feature from '@/components/sections/Features/Feature.vue'
-  import Examples from '@/components/sections/Examples.vue'
-  import Example from '@/components/sections/Examples/Example.vue'
-  import Links from '@/components/sections/Links.vue'
+import Header from "@/components/Header.vue";
+import Footer from "@/components/Footer.vue";
+import Hero from "@/components/sections/Hero.vue";
+import Features from "@/components/sections/Features.vue";
+import Feature from "@/components/sections/Features/Feature.vue";
+import Examples from "@/components/sections/Examples.vue";
+import Example from "@/components/sections/Examples/Example.vue";
+import Links from "@/components/sections/Links.vue";
 
-  export default {
-    components: {
-      AppHeader: Header,
-      Hero,
-      Features,
-      Feature,
-      Examples,
-      Example,
-      Links,
-      AppFooter: Footer
-    }
-  }
+export default {
+  components: {
+    AppHeader: Header,
+    Hero,
+    Features,
+    Feature,
+    Examples,
+    Example,
+    Links,
+    AppFooter: Footer,
+  },
+};
 </script>
 
 <style lang="sass" scoped>
-  @import '@/assets/styles/mixins.sass'
+@import '@/assets/styles/mixins.sass'
 
-  footer
-    padding-top: 3rem
+footer
+  padding-top: 3rem
 </style>

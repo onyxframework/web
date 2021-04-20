@@ -17,9 +17,9 @@
         h4.heading Developers
         ul
           li
-            a(href="https://docs.onyxframework.org") Docs
+            a(href="https://docs.onyxframework.com") Docs
           li
-            a(href="https://api.onyxframework.org") API
+            a(href="https://api.onyxframework.com") API
       .column
         h4.heading Resources
         ul
@@ -33,7 +33,7 @@
         h4.heading Project
         ul
           li
-            a(href="https://blog.onyxframework.org") Blog
+            a(href="https://blog.onyxframework.com") Blog
           li
             a(href="#") About
           li.patrons
@@ -41,59 +41,59 @@
 </template>
 
 <style lang="sass" scoped>
-  @import '@/assets/styles/mixins.sass'
+@import '@/assets/styles/mixins.sass'
 
-  footer
-    +center
+footer
+  +center
 
-    padding-bottom: 3rem
-    color: white
+  padding-bottom: 3rem
+  color: white
 
-    .wrapper
-      display: grid
-      grid-row-gap: 1.5rem
-      grid-template-columns: repeat(6, 1fr)
-      width: 100%
-      max-width: 54rem
-      padding-right: 2rem
-      padding-left: 2rem
+  .wrapper
+    display: grid
+    grid-row-gap: 1.5rem
+    grid-template-columns: repeat(6, 1fr)
+    width: 100%
+    max-width: 54rem
+    padding-right: 2rem
+    padding-left: 2rem
 
-      @media (max-width: 768px)
-        grid-template-columns: auto
+    @media (max-width: 768px)
+      grid-template-columns: auto
 
-        .column
-          font-size: 1rem
+      .column
+        font-size: 1rem
 
-    .copyright
-      color: transparentize(white, 0.5)
-      font-size: 0.8rem
+  .copyright
+    color: transparentize(white, 0.5)
+    font-size: 0.8rem
 
-    .column
-      color: transparentize(white, 0.3)
-      font-size: 0.8rem
-      line-height: 1
+  .column
+    color: transparentize(white, 0.3)
+    font-size: 0.8rem
+    line-height: 1
 
-      .heading
-        margin: 0
-        font-size: inherit
-        text-transform: uppercase
+    .heading
+      margin: 0
+      font-size: inherit
+      text-transform: uppercase
 
-      a
-        color: inherit
-        font-weight: normal
+    a
+      color: inherit
+      font-weight: normal
 
-        &:hover
-          color: white
+      &:hover
+        color: white
 
-      ul
-        padding: 0
-        list-style: none
+    ul
+      padding: 0
+      list-style: none
 
-        li
-          &:not(:first-of-type)
-            margin-top: 0.75rem
+      li
+        &:not(:first-of-type)
+          margin-top: 0.75rem
 
-          &.patrons
-            color: gold
-            text-shadow: 0 0 20px gold
+        &.patrons
+          color: gold
+          text-shadow: 0 0 20px gold
 </style>
