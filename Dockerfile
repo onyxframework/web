@@ -14,6 +14,18 @@ RUN yarn install --frozen-lockfile
 # Copy the rest of the project source code
 COPY . .
 
+ARG VUE_APP_DOCS_URL
+ARG VUE_APP_API_URL
+ARG VUE_APP_BLOG_URL
+
+RUN : "${VUE_APP_DOCS_URL:?Build argument VUE_APP_DOCS_URL is required. Pass it with --build-arg VUE_APP_DOCS_URL=value}"
+RUN : "${VUE_APP_API_URL:?Build argument VUE_APP_API_URL is required. Pass it with --build-arg VUE_APP_API_URL=value}"
+RUN : "${VUE_APP_BLOG_URL:?Build argument VUE_APP_BLOG_URL is required. Pass it with --build-arg VUE_APP_BLOG_URL=value}"
+
+ENV VUE_APP_DOCS_URL=$VUE_APP_DOCS_URL
+ENV VUE_APP_API_URL=$VUE_APP_API_URL
+ENV VUE_APP_BLOG_URL=$VUE_APP_BLOG_URL
+
 # Compile and minify the static files for production
 RUN yarn run build
 

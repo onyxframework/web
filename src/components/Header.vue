@@ -84,14 +84,14 @@ export default {
         this.selectedPage && this.selectedPage.component
           ? this.selectedPage.path
           : "";
-      return "https://docs.onyxframework.com" + add;
+      return process.env.VUE_APP_DOCS_URL + add;
     },
     apiURL() {
       let add =
         this.selectedPage && this.selectedPage.component
           ? this.selectedPage.path
           : "";
-      return "https://api.onyxframework.com" + add;
+      return process.env.VUE_APP_API_URL + add;
     },
     gitHubURL() {
       let add =

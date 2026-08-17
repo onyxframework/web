@@ -9,7 +9,7 @@
         img.logo(src="/img/logo.svg" draggable="false")
         h1.title Powerful framework for modern applications
         p.description Built on Crystal, Onyx Framework brings previously unseen combination of speed and joy to the world of everyday development.
-        a.button.hover-raise(href="https://docs.onyxframework.com") Get started
+        a.button.hover-raise(:href="process.env.VUE_APP_DOCS_URL") Get started
     features
       feature
         template(slot="title")
@@ -126,12 +126,12 @@
       .stripes
         .stripe
       .wrapper
-        a.card(href="https://blog.onyxframework.com")
+        a.card(:href="process.env.VUE_APP_BLOG_URL")
           h2.header
             i.twa.twa-lg.twa-newspaper
             |  Visit our blog →
           p.content Read Onyx Framework development and community news, learn about its powers and how-to's.
-        a.card(href="https://docs.onyxframework.com")
+        a.card(:href="process.env.VUE_APP_DOCS_URL")
           h2.header
             i.twa.twa-lg.twa-books
             |  Explore the docs →

@@ -17,9 +17,9 @@
         h4.heading Developers
         ul
           li
-            a(href="https://docs.onyxframework.com") Docs
+            a(:href="process.env.VUE_APP_DOCS_URL") Docs
           li
-            a(href="https://api.onyxframework.com") API
+            a(:href="process.env.VUE_APP_API_URL") API
       .column
         h4.heading Resources
         ul
@@ -33,7 +33,7 @@
         h4.heading Project
         ul
           li
-            a(href="https://blog.onyxframework.com") Blog
+            a(:href="process.env.VUE_APP_BLOG_URL") Blog
           li
             a(href="#") About
           li.patrons

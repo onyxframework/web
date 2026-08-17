@@ -7,7 +7,7 @@
           |  Documentation
         template(#content) A well-organaized online-book with code examples will guide you through the world of development with Onyx.
         template(#link)
-          a.button.small(:href="'https://docs.onyxframework.com' + path") Explore the docs
+          a.button.small(:href="process.env.VUE_APP_DOCS_URL + path") Explore the docs
       a-link
         template(#title)
           i.twa.twa-lg.twa-gear
@@ -15,7 +15,7 @@
         template(#content)
           | Dive into raw methods and classes documentation with automatically built API docs.
         template(#link)
-          a.button.small(:href="'https://api.onyxframework.com' + path") Open the API
+          a.button.small(:href="process.env.VUE_APP_API_URL + path") Open the API
       a-link
         template(#title)
           i.twa.twa-lg.twa-speech-balloon
