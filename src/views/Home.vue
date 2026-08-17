@@ -9,7 +9,7 @@
         img.logo(src="/img/logo.svg" draggable="false")
         h1.title Powerful framework for modern applications
         p.description Built on Crystal, Onyx Framework brings previously unseen combination of speed and joy to the world of everyday development.
-        a.button.hover-raise(:href="process.env.VUE_APP_DOCS_URL") Get started
+        a.button.hover-raise(:href="docsUrl") Get started
     features
       feature
         template(slot="title")
@@ -126,12 +126,12 @@
       .stripes
         .stripe
       .wrapper
-        a.card(:href="process.env.VUE_APP_BLOG_URL")
+        a.card(:href="blogUrl")
           h2.header
             i.twa.twa-lg.twa-newspaper
             |  Visit our blog →
           p.content Read Onyx Framework development and community news, learn about its powers and how-to's.
-        a.card(:href="process.env.VUE_APP_DOCS_URL")
+        a.card(:href="docsUrl")
           h2.header
             i.twa.twa-lg.twa-books
             |  Explore the docs →
@@ -139,7 +139,7 @@
     app-footer
 </template>
 
-<script>
+<script lang="js">
 import Header from "@/components/Header.vue";
 import Footer from "@/components/Footer.vue";
 import Features from "@/components/sections/Features.vue";
@@ -151,6 +151,13 @@ export default {
     AppFooter: Footer,
     Features,
     Feature,
+  },
+  data() {
+    return {
+      blogUrl: process.env.VUE_APP_BLOG_URL,
+      docsUrl: process.env.VUE_APP_DOCS_URL,
+      apiUrl: process.env.VUE_APP_API_URL,
+    };
   },
 };
 </script>

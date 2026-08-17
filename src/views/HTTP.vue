@@ -7,7 +7,7 @@
       template(#description)
         p An opinionated web framework to build scalable web applications.
       template(#cta)
-        a(:href="process.env.VUE_APP_DOCS_URL + '/http'").button.hover-raise Read the docs
+        a(:href="docsUrl + '/http'").button.hover-raise Read the docs
     features(:displayStripes="false")
       feature
         template(#title)
@@ -47,7 +47,7 @@
           p
             i.twa.twa-books
             |&nbsp;
-            a(:href="process.env.VUE_APP_DOCS_URL + '/http'") Get started →
+            a(:href="docsUrl + '/http'") Get started →
         template(#example)
           pre(v-highlight)
             code.crystal.
@@ -71,7 +71,7 @@
           p
             i.twa.twa-books
             |&nbsp;
-            a(:href="process.env.VUE_APP_DOCS_URL + '/http/endpoints'") Read about endpoints →
+            a(:href="docsUrl + '/http/endpoints'") Read about endpoints →
         template(#example)
           pre(v-highlight)
             code.
@@ -108,7 +108,7 @@
           p
             i.twa.twa-books
             |&nbsp;
-            a(:href="process.env.VUE_APP_DOCS_URL + '/http/views'") Read about views →
+            a(:href="docsUrl + '/http/views'") Read about views →
         template(#example)
           pre(v-highlight)
             code.
@@ -129,7 +129,7 @@
           p
             i.twa.twa-books
             |&nbsp;
-            a(:href="process.env.VUE_APP_DOCS_URL + '/http/channels'") Read about channels →
+            a(:href="docsUrl + '/http/channels'") Read about channels →
         template(#example)
           pre(v-highlight)
             code.
@@ -166,6 +166,11 @@ export default {
     Example,
     Links,
     AppFooter: Footer,
+  },
+  data() {
+    return {
+      docsUrl: process.env.VUE_APP_DOCS_URL,
+    };
   },
 };
 </script>

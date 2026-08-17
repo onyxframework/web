@@ -7,7 +7,7 @@
       template(#description)
         p An Event-Driven Architecture framework to build reactive applications.
       template(#cta)
-        a(:href="process.env.VUE_APP_DOCS_URL + '/http'").button.hover-raise Read the docs
+        a(:href="docsUrl + '/http'").button.hover-raise Read the docs
     features(:displayStripes="false")
       feature
         template(#title)
@@ -46,7 +46,7 @@
           p
             i.twa.twa-books
             |&nbsp;
-            a(:href="process.env.VUE_APP_DOCS_URL + '/eda'") Get started →
+            a(:href="docsUrl + '/eda'") Get started →
         template(#example)
           pre(v-highlight)
             code.crystal.
@@ -69,7 +69,7 @@
           p
             i.twa.twa-books
             |&nbsp;
-            a(:href="process.env.VUE_APP_DOCS_URL + '/eda/subscriptions'") Read about subscriptions →
+            a(:href="docsUrl + '/eda/subscriptions'") Read about subscriptions →
         template(#example)
           pre(v-highlight)
             code.crystal.
@@ -91,7 +91,7 @@
           p
             i.twa.twa-books
             |&nbsp;
-            a(:href="process.env.VUE_APP_DOCS_URL + '/eda/subscriptions'") Read about subscriptions →
+            a(:href="docsUrl + '/eda/subscriptions'") Read about subscriptions →
         template(#example)
           pre(v-highlight)
             code.crystal.
@@ -109,7 +109,7 @@
           p
             i.twa.twa-books
             |&nbsp;
-            a(:href="process.env.VUE_APP_DOCS_URL + '/eda/channel/redis'") Read about Redis channel →
+            a(:href="docsUrl + '/eda/channel/redis'") Read about Redis channel →
         template(#example)
           pre(v-highlight)
             code.crystal.
@@ -146,6 +146,11 @@ export default {
     Example,
     Links,
     AppFooter: Footer,
+  },
+  data() {
+    return {
+      docsUrl: process.env.VUE_APP_DOCS_URL,
+    };
   },
 };
 </script>

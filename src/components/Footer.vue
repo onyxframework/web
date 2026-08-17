@@ -1,3 +1,15 @@
+<source lang="js">
+export default {
+  data() {
+    return {
+      blogUrl: process.env.VUE_APP_BLOG_URL,
+      docsUrl: process.env.VUE_APP_DOCS_URL,
+      apiUrl: process.env.VUE_APP_API_URL,
+    };
+  },
+};
+</source>
+
 <template lang="pug">
   footer
     .wrapper
@@ -17,9 +29,9 @@
         h4.heading Developers
         ul
           li
-            a(:href="process.env.VUE_APP_DOCS_URL") Docs
+            a(:href="docsUrl") Docs
           li
-            a(:href="process.env.VUE_APP_API_URL") API
+            a(:href="apiUrl") API
       .column
         h4.heading Resources
         ul
@@ -33,7 +45,7 @@
         h4.heading Project
         ul
           li
-            a(:href="process.env.VUE_APP_BLOG_URL") Blog
+            a(:href="blogUrl") Blog
           li
             a(href="#") About
           li.patrons

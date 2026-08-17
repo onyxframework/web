@@ -7,7 +7,7 @@
       template(#description)
         p A delightful, type-safe and database-agnostic SQL ORM with clean architecture.
       template(#cta)
-        a(:href="process.env.VUE_APP_DOCS_URL + '/sql'").button.hover-raise Read the docs
+        a(:href="docsUrl + '/sql'").button.hover-raise Read the docs
     features(:displayStripes="false")
       feature
         template(#title)
@@ -51,7 +51,7 @@
           p
             i.twa.twa-books
             |&nbsp;
-            a(:href="process.env.VUE_APP_DOCS_URL + '/sql/schema'") Read Schema docs →
+            a(:href="docsUrl + '/sql/schema'") Read Schema docs →
         template(#example)
           pre(v-highlight)
             code.crystal.
@@ -80,7 +80,7 @@
           p
             i.twa.twa-books
             |&nbsp;
-            a(:href="process.env.VUE_APP_DOCS_URL + '/sql/query'") Read Query docs →
+            a(:href="docsUrl + '/sql/query'") Read Query docs →
         template(#example)
           pre(v-highlight)
             code.crystal.
@@ -100,7 +100,7 @@
           p
             i.twa.twa-books
             |&nbsp;
-            a(:href="process.env.VUE_APP_DOCS_URL + '/sql/query'") Read Query docs →
+            a(:href="docsUrl + '/sql/query'") Read Query docs →
         template(#example)
           pre(v-highlight)
             code.crystal.
@@ -157,6 +157,11 @@ export default {
     Example,
     Links,
     AppFooter: Footer,
+  },
+  data() {
+    return {
+      docsUrl: process.env.VUE_APP_DOCS_URL,
+    };
   },
 };
 </script>
