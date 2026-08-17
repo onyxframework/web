@@ -12,7 +12,9 @@ COPY package.json yarn.lock ./
 RUN yarn install --frozen-lockfile
 
 # Copy the rest of the project source code
-COPY . .
+COPY .eslintrc.json .stylelintrc.json babel.config.js ./
+COPY public ./public
+COPY src ./src
 
 ARG VUE_APP_DOCS_URL
 ARG VUE_APP_API_URL
