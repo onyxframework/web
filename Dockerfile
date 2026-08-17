@@ -34,5 +34,8 @@ RUN yarn run build
 # ==========================================
 FROM nginx:1.27.5-alpine-slim AS client
 
+# Install curl (for heartbeats).
+RUN apk add --no-cache curl
+
 COPY --from=builder /app/dist /usr/share/nginx/html
 COPY ./nginx.conf /etc/nginx/
